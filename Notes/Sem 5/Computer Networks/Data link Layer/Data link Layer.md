@@ -8,9 +8,9 @@
 		- Error rate is very high
 		- Acknowledgement is required
 - utilizing the services / functioning in the link layer by getting the information from physical layer
-	- Error Control
+	- [[Error Control]]
 	- [[Framing Methods|Framing]] (separate header, payload and trailer)
-	- Flow Control
+	- [[Flow Control]]
 
 #### Connection Oriented
 ---
@@ -19,8 +19,7 @@
 - Error correction and recovery is guaranteed by link layer.
 - For a satellite communication, before sending the frames, sender and receiver agree on communication (hand shake). And each frame is acknowledged to make the communication reliable as it is long distance and is error prone
 
->[!info]
->Steps involved
+>[!info] Steps involved
 >- Connection establishment
 >- Send or receive data
 >- Connection release
@@ -34,8 +33,7 @@
 - Each frame is treated independently
 - No guarantee of delivery, ordering or error recovery (unless handled in higher layers)
 
->[!info]
->Steps involved
+>[!info] Steps involved
 >- Send or receive data
 >  
 >i.e., there is no connection establishment or connection release
