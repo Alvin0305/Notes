@@ -1,0 +1,249 @@
+{
+  "main": {
+    "id": "972abce64627b4eb",
+    "type": "split",
+    "children": [
+      {
+        "id": "3cd9fd38272d433e",
+        "type": "tabs",
+        "dimension": 77.20588235294117,
+        "children": [
+          {
+            "id": "d40dcc7939bfcb81",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Sem 5/Computer Networks/Data link Layer/Framing Methods.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Framing Methods"
+            }
+          },
+          {
+            "id": "1516aae67991a900",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Sem 5/Computer Networks/Data link Layer/Data link Layer.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Data link Layer"
+            }
+          },
+          {
+            "id": "c5745c670ab11432",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Sem 5/Computer Networks/Data link Layer/Error Control.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Error Control"
+            }
+          }
+        ],
+        "currentTab": 2
+      },
+      {
+        "id": "5b7355ce431efbe2",
+        "type": "tabs",
+        "dimension": 22.794117647058822,
+        "children": [
+          {
+            "id": "ee2cd8ae229cad67",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "f6526a919930eb24",
+    "type": "split",
+    "children": [
+      {
+        "id": "7dfec2d540dc087e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "85f15ff422a30d2b",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "70f0bca0147774b8",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "8a9ff0a73ceb8f9f",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "a6b5d8ed28d60df9",
+    "type": "split",
+    "children": [
+      {
+        "id": "8735b416ad7a3027",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7668c2b1cb765850",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Sem 5/Computer Networks/Data link Layer/Error Control.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Error Control"
+            }
+          },
+          {
+            "id": "5b04986638b50040",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Sem 5/Computer Networks/Data link Layer/Error Control.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Error Control"
+            }
+          },
+          {
+            "id": "19098b8c9d6b11b1",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "7c537e6db89905a4",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Sem 5/Computer Networks/Data link Layer/Error Control.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Error Control"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "c5745c670ab11432",
+  "lastOpenFiles": [
+    "Untitled.canvas",
+    "Sem 5/Computer Networks/Data link Layer/Error Control.md",
+    "Sem 5/Computer Networks/Data link Layer/Data link Layer.md",
+    "Sem 5/Computer Networks/Data link Layer/Framing Methods.md",
+    "Untitled.base",
+    "Sem 5/Computer Networks/Network Identifiers.md",
+    "Sem 5/Computer Networks/Data link Layer",
+    "Sem 5/Computer Networks/OSI Model.md",
+    "Sem 5/Computer Networks/Transmission Modes.md",
+    "Sem 5/Computer Networks/Network Devices.md",
+    "Sem 5/Computer Networks/Network Models.md",
+    "Sem 5/Computer Networks/Network Topologies.md",
+    "Sem 5/Computer Networks/Networking Concepts.md",
+    "Sem 5/Computer Networks/Performance Metrics.md",
+    "Welcome.md",
+    "Sem 5/Computer Networks/Images/Token Ring.png",
+    "Sem 5/Computer Networks/Images/Star.png",
+    "Sem 5/Computer Networks/Images/Ring.png",
+    "Sem 5/Computer Networks/Images/P2P.png",
+    "Sem 5/Computer Networks/Images/Mesh.png",
+    "Sem 5/Computer Networks/Images/Bus.png",
+    "Sem 5/Computer Networks/Images",
+    "Sem 5/French",
+    "Sem 5/Compiler Design",
+    "Sem 5/Design and Analysis of Algorithms",
+    "Sem 5/Computer Networks",
+    "Sem 5"
+  ]
+}

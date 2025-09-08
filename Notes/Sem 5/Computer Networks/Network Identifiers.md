@@ -1,0 +1,45 @@
+## PORT-Number
+---
+- Identifies which process is using the network within a system
+- 0 -> 1024 are called **Well defined** as they are used for predefined services
+	- HTTP -> 80
+	- HTTPS -> 443
+	- DNS -> 53
+- 1024 -> 65535 are called **ephemeral** since, they are not preassigned and we can use it for our purposes. 
+- When a device receives a packet, the port number defines, to which process the packet should be given
+
+## IP-Address
+---
+- Two types
+	- Public
+		- Known to everyone
+		- Globally unique
+		- Assigned by ISP
+		- Not free
+		- Router have a public IP
+	- Private
+		- Used only in local/private network
+		- Unique only inside a local network
+		- Assigned by Router
+		- Free
+		- Not directly accessible from the internet
+- Versions of IP
+	- IPv4
+		- 32 bit: represented as 4 octets -> 192.168.1.1
+		- each part can vary from 0 to 255
+	- IPv6
+		- 128 bit: represented in hexadecimal -> 2001:0db8:85a3::8a2e:0370:7334
+- Routers acts as a DHCP servers (Dynamic Host Configuration Protocol [[Networking Concepts#DHCP Server|DHCP]]) and assigns IP to devices
+- Routers acts as a NAT [[Networking Concepts#NAT|NAT]] also translating IPs
+- It identifies to which local network (router), the packet should be send. From the IP address, the router can understand to which router the packet should be forwarded.
+- Works in Network Layer
+
+## MAC-Address
+---
+- Medium Access Control Address
+- 48 bit
+- Unique address for each device in the internet
+- Hardcoded into the NIC of the device
+- Works in Data link Layer
+- Used only inside a LAN
+- Helps devices communicate inside a LAN
