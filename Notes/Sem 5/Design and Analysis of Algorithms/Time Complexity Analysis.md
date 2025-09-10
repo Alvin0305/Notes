@@ -1,0 +1,12 @@
+- **Big-O Notation (O): Asymptotic Upper Bound**
+    - f(n) = O(g(n)) means f(n) grows no faster than g(n).
+    - Formal Definition: There exist constants c > 0 and n₀ > 0 such that 0 ≤ f(n) ≤ c * g(n) for all n ≥ n₀.
+    - Example: 3n² + 5n + 10 = O(n²).
+- **Big-Omega Notation (Ω): Asymptotic Lower Bound**
+    - f(n) = Ω(g(n)) means f(n) grows at least as fast as g(n).
+    - Formal Definition: There exist constants c > 0 and n₀ > 0 such that 0 ≤ c * g(n) ≤ f(n) for all n ≥ n₀.
+    - Example: 3n² + 5n + 10 = Ω(n²).
+- **Big-Theta Notation (Θ): Asymptotic Tight Bound**
+    - f(n) = Θ(g(n)) means f(n) grows at the same rate as g(n).
+    - Formal Definition: f(n) = O(g(n)) and f(n) = Ω(g(n)).
+    - Example: 3n² + 5n + 10 = Θ(n²).
