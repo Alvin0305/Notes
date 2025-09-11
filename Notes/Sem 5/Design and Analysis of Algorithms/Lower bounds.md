@@ -118,4 +118,4 @@ def findMinMax(arr, n):
 - We count the number of queries asked as a measure of time complexity
 - Algorithm can asks only yes or no questions
 - When the adversary has two options to answer, it will always answer the one which will require more steps to reach the leaf (find the solution)
-- When adversary has two options to asks, it will ask the query which will result in reaching the leaf node (finding the solution) in least steps
+- When algorithm has two options to asks, it will ask the query which will result in reaching the leaf node (finding the solution) in least steps

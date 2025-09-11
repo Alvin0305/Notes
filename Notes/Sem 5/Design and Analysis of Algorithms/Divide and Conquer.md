@@ -48,7 +48,7 @@ $$
 P_1 &= X_LY_L \\
 P_2 &= X_RY_R \\
 P_3 &= (X_L + X_R)(Y_L + Y_R) \\
-X\cdot Y &= 2^nP_1 + 2^{n/2}P_3 + P_2 \\
+X\cdot Y &= 2^nP_1 + 2^{n/2}(P_3 - P_2 - P_1) + P_2 \\
 \end{aligned}
 $$
 - This way we reduced the number of multiplications from 4 to 3, Also since we are splitting the number is half, the number of bits being multiplied at a time is also reduced
@@ -66,7 +66,7 @@ def multiply(x, y):
 	P_2 = multiply(X_R, Y_R)
 	P_3 = multiply(X_L + X_R, Y_L + Y_R)
 	
-	return 2^n * P_1 + 2^(n/2) * P_3 + P_2
+	return 2^n * P_1 + 2^(n/2) * (P_3 - P_2 - P_1) + P_2
 ```
 
 - Since, there are 3 multiplications and each at each step we are splitting the number in halves
