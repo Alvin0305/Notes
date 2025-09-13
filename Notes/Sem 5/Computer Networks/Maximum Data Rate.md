@@ -5,7 +5,7 @@ Maximum data rate depends on whether the channel is noiseless or noisy.
 1. Nyquist Bit Rate Formula
 
 For a noiseless channel with bandwidth B Hz and using V signal levels. 
-#### $Maximum Data Rate = 2B\log_2(10) bits/s$
+#### $Maximum Data Rate = 2B\log_2(V) bits/s$
 
 ### Noise Channel
 ---
