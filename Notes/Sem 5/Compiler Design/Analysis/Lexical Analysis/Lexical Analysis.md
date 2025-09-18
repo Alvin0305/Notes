@@ -82,3 +82,4 @@
 ![[Relop.png]]
 
 - We can create a complete lexical analyzer by combining transition diagrams of each of the lexemes in the grammar
+

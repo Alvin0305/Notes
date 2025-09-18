@@ -3,11 +3,9 @@
 - The parser ensures the structure(syntax), while semantic analyzer ensures meaning(semantics)
 - The program that performs this task is called semantic analyzer
 #### Input and output
----
 - Input -> Parse Tree / AST(from Syntax Analyzer) + Symbol Table(from lexical analyzer)
 - Output -> Annotated AST(with type information, scope etc) + Updated Symbol Table
 #### Responsibilities
----
 1. Type Checking
 	- Ensure operands are type compatible
 2.  Scope Resolution
@@ -16,4 +14,3 @@
 	- Verify function calls matches function signature
 4. Array and pointer check
 	- Checks if we are trying to access elements out if index in an array
-

@@ -2,7 +2,7 @@
 - Tree Nodes:
 	- Non terminal: choose production, add children
 	- Terminal: match with the next input token
-- This procedure is equivalent of finding a left most derivation
+- This procedure is equivalent of finding a [[Sem 5/Compiler Design/Concepts#Left most derivation|Left most derivation]]
 
 >[!example]
 >S -> cAd
@@ -162,7 +162,7 @@ A() {
 | S   | S -> (A) |     | S -> \[A] |     |     |           |            |     |
 | A   |          |     |           |     |     | A -> id+E | A -> num+E |     |
 | E   |          |     |           |     |     | E -> id   | E -> num   |     |
-- But if the grammar contains ε productions, then [[Concepts#FIRST|FIRST]] is not enough to populate the table, we need [[Concepts#FOLLOW|FOLLOW]] as well
+- But if the grammar contains ε productions, then [[Sem 5/Compiler Design/Concepts#FIRST|FIRST]] is not enough to populate the table, we need [[Sem 5/Compiler Design/Concepts#FOLLOW|FOLLOW]] as well
 
 >[!important] 
 >Algorithm to populate the parsing table using FIRST and FOLLOW sets
@@ -317,7 +317,7 @@ A() {
 
 >[!tip] 
 >Input -> string w and parsing table T for Grammar G
->Output -> if w ∈ L(G), productions in a leftmost derivation of w; otherwise error indication
+>Output -> if w ∈ L(G), productions in a [[Sem 5/Compiler Design/Concepts#Left most derivation|Left most derivation]] of w; otherwise error indication
 
 - In this method, we keep a stack of input symbols and an input buffer
 - The stack contains S\$ initially (S is on top)
@@ -349,5 +349,6 @@ From, the parser table
 (stack top is the first character is the stack column)
 
 >[!important] 
->Predictive parsing is suitable for [[Grammar Types#LL(1)|LL(1) Grammar]] only
+>- Predictive parsing is suitable for [[Grammar Types#LL(1)|LL(1) Grammar]] only
+>- Predictive parsers cannot be used for [[Sem 5/Compiler Design/Concepts#Left Recursive Grammar|Left recursive grammars]]. To parse a [[Sem 5/Compiler Design/Concepts#Left Recursive Grammar|Left recursive grammars]], it should be first [[Sem 5/Compiler Design/Concepts#Conversion of Left Recursive to Right Recursive Grammar|Converted to right recursive grammar]]
 

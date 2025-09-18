@@ -7,6 +7,4 @@
 ![[Top Down Parsing Algorithms]]
 ## Bottom Up Parsing
 ---
-- Construct parse tree bottum-up, starting from leaves
-- Parent node A added to a set of nodes matching the body $\alpha$ of production $A \to \alpha$
-- 
+![[Bottom Up Parsing Algorithms]]

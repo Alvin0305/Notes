@@ -13,7 +13,7 @@
 >```
 
 >[!tip] Steps of Analysis
->Character Stream -> `Lexical Analysis` -> Token Stream -> `Syntax Analysis (parsing)` -> IR + Symbol Table -> `Semantic Analysis` -> IR + Symbol Table
+>Character Stream -> `Lexical Analysis` -> Token Stream -> `Syntax Analysis (parsing)` -> IR + [[Sem 5/Compiler Design/Concepts#Symbol Table|Symbol Table]] -> `Semantic Analysis` -> IR + [[Sem 5/Compiler Design/Concepts#Symbol Table|Symbol Table]]
 
 ### Lexical Analysis
 ---
