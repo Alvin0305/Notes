@@ -1,6 +1,5 @@
 - When multiple communications happen simultaneously, others messages can interfere with our communication. Such interference is called noise. To avoid such noise, we use the following techniques
-### Code Division Multiple Access (CDMA)
----
+#### Code Division Multiple Access (CDMA)
 - All users use the same frequency and time, but separated by unique codes
 - Used in 2G/3G mobile systems and military communications
 
@@ -48,33 +47,29 @@ D = 01000010
 >`S4.C = (1 - 3 - 1 - 1 + 1 - 1 - 3 - 1) / 8 = -1` => C transmitted '0'
 
 In this way, we can filter out the required data from the noise
-
-### Frequency Division Multiple Access (FDMA)
----
+#### Frequency Division Multiple Access (FDMA)
 - Each station is given different frequency range.
 - Guard band prevents overlapping
 - The allowed frequency band will be equally split to all the devices
 - Devices can communicate simultaneously
-
-### Time Division Multiple Access (TDMA)
----
+- e.g., 1G
+#### Time Division Multiple Access (TDMA)
 - Same frequency spectrum is given to all the devices
 - But each device is allotted different time interval
 - A device can communicate only in its allotted time
 - Every station gets the complete bandwidth
 - Time is allotted in Round Robin fashion
-
-### Statistical Time Division Multiple Access (STDMA)
----
+- e.g., 2G GSM (global system for mobile communication)
+#### Statistical Time Division Multiple Access (STDMA)
 - Similar to TDMA
 - Difference is in the fact that, the time allotted for a device is dynamically calculated based on the traffic for each station
-
-### Orthogonal Frequency Division Multiplexing (OFDM)
----
+- used in ships
+#### Orthogonal Frequency Division Multiplexing (OFDM)
 - When one station is using the peak frequency, the other will be at zero
 - Used in phones
-
+- Each of the frequency sub-carrier allotted to users are orthogonal to each other. This means, even though they overlap, they doesn't interfere with each other.
+- e.g., Wi-Fi, 4G LTE, 5G NR
 #### Difference between FDMA and OFDM
----
+
 ![[OFDM vs FDMA.png]]
 

@@ -1,6 +1,4 @@
-
-## Baseband Transmission
----
+#### Baseband Transmission
 - Entire bandwidth of the channel is used to send one signal at a time
 - Data is sent as digital signals
 - Used in LAN(Ethernet)
@@ -33,8 +31,7 @@
 >10GBaseFX
 >- 10Gbps
 >- Optical Fibre
-## Broadband Transmission
----
+#### Broadband Transmission
 - The channel is divided into multiple frequency ranges using Frequency Division Multiplexing(FDM)
 - Each frequency band carries a separate analog signal (can carry modulated digital signals also)
 - Used in WAN, Cable TV ...

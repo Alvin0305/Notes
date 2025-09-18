@@ -3,8 +3,7 @@ The data data link layer receives from physical layer is just a stream of bits w
 - Byte stuffing
 - Bit stuffing
 
-### Byte Count
----
+#### Byte Count
 the size of the frame is kept in the starting of the frame.
 
 >[!example]
@@ -16,8 +15,7 @@ the size of the frame is kept in the starting of the frame.
 >[!warning]
 >If the count byte itself gets corrupted, then the entire frame gets corrupted
 
-### Byte Stuffing
----
+#### Byte Stuffing
 We use delimiters at starting and ending of the frame. Each delimiter is of size 8 bits (1 Byte). If the delimiter itself appear in the body, we escape it by escape character
 
 - DLE STX => Start of Frame
@@ -37,8 +35,7 @@ We use delimiters at starting and ending of the frame. Each delimiter is of size
 - Extra overhead due to escape characters
 - Can be used only for byte-based encodings, not efficient for arbitrary bit streams
 
-### Bit Stuffing
----
+#### Bit Stuffing
 special flag sequence (e.g,. 01111110) is used to mark starting and ending of frames. If the same pattern appears in the data itself, the sender inserts a 0 after every sequence of five consecutive 1s. Receiver removes the stuffed bits.
 
 >[!example]

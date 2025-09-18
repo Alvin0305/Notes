@@ -1,5 +1,4 @@
-## [[OSI Model]]
----
+#### [[OSI Model]]
 - Open Systems Interconnection Model
 - Developed by ISO in 1980
 - Became standard at 1984
@@ -14,8 +13,7 @@
 	- Data link
 	- Physical
 
-## TCP/IP Model
----
+#### TCP/IP Model
 - Developed by DARPA for ARPANET in 1969
 - Became standard by 1983
 - Not properly designed

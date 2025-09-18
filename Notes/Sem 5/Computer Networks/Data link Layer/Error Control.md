@@ -12,13 +12,11 @@ Transmission Errors
 1. Single bit error
 2. Bursty error => multiple bits (consecutive or not) caused by unreliable links
 
-For guided media, we use error detection only, error correction is not necessary as error occurs rarely. If an error occurs, it acknowledge the sender to re-transmit. 
-For unguided media, we use error correction. Because, error occurs more frequently than guided media. Cost of re-transmission should be taken into account. 
-
+>[!tip] 
+>- For guided media, we use error detection only, error correction is not necessary as error occurs rarely. If an error occurs, it acknowledge the sender to re-transmit. 
+>- For unguided media, we use error correction. Because, error occurs more frequently than guided media. Cost of re-transmission should be taken into account. 
 ### Error Correction Methods
-
 #### CRC (Cyclic Redundancy Code)
----
 - CRC is a error-detecting code based on polynomial division
 - sender and receiver agrees on a generator polynomial G(x)
 - Receiver performs some calculation: if the remainder is 0 => no error, else => error detected
@@ -59,9 +57,7 @@ What receiver does?
 >
 >In receiver side, 
 >101100111 is divided by 1101 => Remainder = 0000 => No error
-
 #### Hamming Distance Code
----
 - Parity bits are placed in specific positions so that the receiver can locate and correct errors. 
 - Data bits + Redundant (parity) bits = Hamming Code word
 - Parity bits are placed at positions that are powers of 2
@@ -121,7 +117,8 @@ Therefore, the code word is => 0110011
 This code word will be transmitted to the receiver.
 The code word is unique for a given data
 
->[!question] How the receiver checks and correct errors?
+>[!question] 
+>How the receiver checks and correct errors?
 >
 Consider the situation, due to some issue, instead of 0110011, 0110111 is received
 >
@@ -133,11 +130,11 @@ Consider the situation, due to some issue, instead of 0110011, 0110111 is receiv
 >From this we can say there is an error, to identify at which position error occurred, we add up the parity bit position which have errors => 1 + 4 = 5 
 >i.e., error is in the 5th position, so we can toggle the bit and correct the error
 
->[!info] Minimum Hamming distance (d)
+>[!info] 
+>Minimum Hamming distance (d)
 >
->Minimum Hamming distance is the minimum value obtained by doing XOR in all possible pairs of code words.
->
->Hamming Code can detect d - 1 bit errors and correct $\frac{d-1}{2}$ bit errors
+>- Minimum Hamming distance is the minimum value obtained by doing XOR in all possible pairs of code words.
+>- Hamming Code can detect d - 1 bit errors and correct $\frac{d-1}{2}$ bit errors
 
 >[!warning] Hamming Code is not always correct
 >Hamming code can give false positives, i.e., it may say a code is correct even though it might have some errors. 

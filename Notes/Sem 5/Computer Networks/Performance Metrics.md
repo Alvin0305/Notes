@@ -1,19 +1,22 @@
-# Delay
----
+#### Delay
+
 #Transmission-Delay
 - time to put the data from device to wire
-- $TD = \frac{message size}{band width}$
-- Maximum size of message is 1514B or 1522B based on header
+$$TD = \frac{message size}{band width}$$
+- Maximum size of message is 1514 B or 1522 B based on header
+
 #Propagation-Delay
 - time taken to send the message through the wire
-- $PD = \frac{distance}{speed}$
+$$PD = \frac{distance}{speed}$$
+
 #Queuing-Delay
 - how much time it waits in the buffer
 - Negligible
+
 #Latency 
-- $L = TD + PD + QD$
-# Loss
----
+$$L = TD + PD + QD$$
+#### Loss
+
 >[! Note]
 >Where loss can happen
 >- generation

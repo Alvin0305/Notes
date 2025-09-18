@@ -1,6 +1,5 @@
 Flow control is the process of regulating the amount of data the sender can transmit before waiting for acknowledgement, so that the receiver is not overwhelmed. 
 
-
 > [!question] Why needed?
 > - Sender can be fast (powerful machine or fast network)
 > - Receiver can be slow (weaker machine or limited buffer memory)
@@ -18,15 +17,13 @@ Flow control techniques are:
 	- Selective Repeat ARQ
 
 >[!info] ARQ stands for Automatic Repeat Request
-
-### Stop and Wait ARQ
----
+#### Stop and Wait ARQ
 - The window size is 1 for both sender and receiver
 - i.e., after sending a frame, it waits for acknowledgement and sends the second frame only after receiving the acknowledgement
 - If acknowledgement didn't arrive within the timer, the frame is re-transmitted.
 - Sequence number is kept to prevent duplicate frames or acknowledgements
 
-3 situations
+3 situations:
 - Acknowledgement is lost
 	- Sender sends Frame 0, receiver gets it correctly, delivers it to network layer and sends ACK 1.
 	- ACK 1 is lost in the channel
@@ -40,23 +37,21 @@ Flow control techniques are:
 	- This time, receiver receives Frame 0 and sends ACK 1 back.
 - Delayed acknowledgement
 	- Sender sends Frame 0 -> Receiver gets it and sends ACK 1
-	- ACK 1 is delayed in the channel
-	- Timer expires (it thinks, ACK is lost) => Sender re-transmits Frame 0
-	- Receiver receives Frame 0 again, finds that it is duplicate and discards and send ACK 1 again
+	- ACK 1 is delayed in the channel.
+	- Timer expires (it thinks, ACK is lost) => Sender re-transmits Frame 0.
+	- Receiver receives Frame 0 again, finds that it is duplicate and discards and send ACK 1 again.
 	- Sender gets ACK 1 (whether the first delayed one or the second one), and moves to the next frame.
 
 For this method, the sequence number will be 0 and 1 only, i.e., Frame 0 -> Frame 1 -> Frame 0 -> Frame 1 ...
-
-#### Advantages
+##### Advantages
 - Very easy to implement
 - Minimal buffer required (just one frame at a time)
-#### Disadvantages
+##### Disadvantages
 - Inefficient use of channel
 - Band width wastage
 - Poor performance in noisy channels
 
-### Go-back-N ARQ
----
+#### Go-back-N ARQ
 - sender is allowed to transmit multiple frames (N) before needing an acknowledgement
 - sender window size is N
 - receiver window size is 1: receiver only accepts the next expected frame, discard others
@@ -70,18 +65,16 @@ Frame list of the sender will contains frames of 3 types
 - Frames which are not sent
 - Frames which are sent but not acknowledged
 - Frames which are sent and acknowledged
-
-#### Advantages
+##### Advantages
 - Much better efficiency than Stop-and-Wait
 - Sender can keep the channel busy by transmitting multiple frames
-#### Disadvantages
+##### Disadvantages
 - Wastage due to re-transmission: If one frame is lost, all the subsequent frames in the window has to be re-transmitted even if they are received correctly.
 - Receiver can handle frames in order only.
 
 >[!failure] Practice few questions
 
-### Selective Repeat
----
+#### Selective Repeat
 - Similar to Go-back-N.
 - Only difference is that, only the lost frames will be re-transmitted instead of re-transmitting all the frames after the lost one
 - Can accept out of order frames and buffer them until missing frames arrive
@@ -105,5 +98,3 @@ Frame list of the sender will contains frames of 3 types
 >- they are correctly received and acknowledged
 >- Window slides -> next frames are (6, 7, 0, 1, 2, 3)
 >- But if the old frame 0 is still in the network, the receiver cannot tell whether its the old 0 or the new 0
-
-

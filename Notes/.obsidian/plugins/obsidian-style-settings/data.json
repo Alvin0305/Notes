@@ -47,5 +47,8 @@
   "minimal-style@@file-header-visibility": "minimal-tab-title-visible",
   "minimal-style@@file-header-justify": "left",
   "minimal-style@@window-title-off": false,
-  "minimal-style@@h4-l": true
+  "minimal-style@@h4-l": true,
+  "minimal-style@@h2-size": "1.6em",
+  "minimal-style@@h1-size": "1.8em",
+  "minimal-style@@h5-size": "0.95em"
 }
