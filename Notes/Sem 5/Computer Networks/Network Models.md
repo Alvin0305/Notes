@@ -21,14 +21,14 @@
 - Not properly designed
 - But used throughout internet
 - 4 layers
-	- Network Access (Link) => Ethernet, WiFi
-		- Merges Physical and Data link layer in OSI model
-	- Internet => Logical addressing & routing (IP, ARP)
-		- same as Network layer in OSI Model
-	- Transport => End-to-end delivery (TCP, UDP)
-		- same as Transport layer in OSI Model
 	- Application => All high level protocols (HTTP, FTP, SMTP, DNS) 
 		- Merges Application, Presentation and Session layer in OSI Model
+	- Transport => End-to-end delivery (TCP, UDP)
+		- same as Transport layer in OSI Model
+	- Internet => Logical addressing & routing (IP, ARP)
+		- same as Network layer in OSI Model
+	- Network Access (Link) => Ethernet, WiFi
+		- Merges Physical and Data link layer in OSI model
 - Error and flow control in Data link layer is moved to Transport layer
 - Application layer is in User space
 - Transport, Internet and Network Access (Link) layer is in Kernel space
