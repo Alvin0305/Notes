@@ -107,4 +107,15 @@ When we open a website
 - Data link -> Within a local network, ensures delivery to the correct MAC Address. Frame the raw bits
 - Physical -> Bits travel as electrical signals
 
+| Name         | Function                                               | Protocols                                 | PDU (Protocol Data Unit) |
+| ------------ | ------------------------------------------------------ | ----------------------------------------- | ------------------------ |
+| Application  | Interaction with User                                  | HTTP, HTTPS, SMTP, FTP, DNS               | Data                     |
+| Presentation | Encoding, Decoding, Compression, Translation           | JPEG, ZIP, PDF, SSL, TLS                  | Data                     |
+| Session      | Establishing, maintaining and ending of session        | netBIOS, RPC                              | Data                     |
+| Transport    | End to end reliable communication                      | TCP/IP, UDP                               | Segment, Datagram        |
+| Network      | Logical routing                                        | IP, BGP, RIP                              | Packet                   |
+| Data Link    | Framing, Physical routing, Error control, Flow control | Ethernet (MAC), ARP                       | Frame                    |
+| Physical     | Sending of raw bits                                    | Ethernet (physical), USB, bluetooth, wifi | Bits                     |
+
+
 [[Network Devices]]

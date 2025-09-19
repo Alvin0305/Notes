@@ -14,7 +14,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Sem 5/Computer Networks/Spectrum Allocation.md",
+                "file": "Sem 5/Computer Networks/Performance Metrics.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -29,7 +29,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Spectrum Allocation"
+              "title": "Performance Metrics"
             }
           },
           {
@@ -224,11 +224,11 @@
   },
   "active": "c564234e448be0fa",
   "lastOpenFiles": [
+    "Sem 5/Computer Networks/OSI Model.md",
+    "Sem 5/Computer Networks/Spectrum Allocation.md",
     "Sem 5/Computer Networks/Performance Metrics.md",
     "Sem 5/Computer Networks/Computer Networks.md",
     "Sem 5/Computer Networks/Transmission Modes.md",
-    "Sem 5/Computer Networks/Spectrum Allocation.md",
-    "Sem 5/Computer Networks/OSI Model.md",
     "Sem 5/Computer Networks/Networking Concepts.md",
     "Sem 5/Computer Networks/Network Topologies.md",
     "Sem 5/Computer Networks/Network Models.md",
