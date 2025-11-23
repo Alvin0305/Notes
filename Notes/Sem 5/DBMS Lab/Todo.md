@@ -1,0 +1,8 @@
+- [x] Physical Layer
+- [ ] Buffer Layer
+- [ ] Cache Layer
+- [ ] B+ Tree Layer
+- [ ] Block Access Layer
+- [ ] Algebra
+- [ ] Schema
+- [ ] Front-End Interface

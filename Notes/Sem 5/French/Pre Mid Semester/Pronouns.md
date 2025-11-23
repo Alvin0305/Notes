@@ -1,0 +1,7 @@
+- He -> Il
+- She -> El
+- You(informal) -> Tu
+- You(formal) -> Vous
+- We -> Nous
+- They(masculine) -> Ils
+- They(feminine) -> Elles

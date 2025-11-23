@@ -70,4 +70,4 @@
 >```
 
 ![[Parsing Algorithms]]
-[[Miscellaneous]]
+[[Sem 5/Compiler Design/Analysis/Syntax Analysis/Miscellaneous]]

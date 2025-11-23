@@ -3,8 +3,9 @@
   "textFontFamily": "Fira Code",
   "monospaceFontFamily": "Fira Code",
   "baseFontSizeAction": true,
-  "baseFontSize": 17,
+  "baseFontSize": 16,
   "cssTheme": "Minimal",
   "showViewHeader": true,
-  "nativeMenus": false
+  "nativeMenus": false,
+  "theme": "system"
 }

@@ -1,0 +1,45 @@
+- I have 20 years -> J'ai 20 ans
+- I like the chocolate -> J'aime le chocolat
+- I speak french -> Je parle le français
+- I listen the music -> J'ecoute la musique
+- I sing the song -> Je chante la chanson
+- I have an apple -> J'ai une pomme
+- He has a house -> Il a une maison
+- This is a table -> c'est une table
+- This is a board -> c'est un tableau
+- These are pens -> ce sont de stylos
+- These are tables -> ce sont de tableaus
+- There are friends -> Il ya des amis
+- There are 10 students in the class -> Il ya dix étudiants dans la classe
+- I have a mobile -> J'ai le portable
+- There is a mobiles -> Il ya un portable
+- This is a mobile -> c'est un portable
+- I love chocolate -> J'aime le chocolat
+- She sings a song -> Elle chante la chanson
+- I love movie -> J'aime le cinema
+- He loves movies -> Il aime les films
+- I speak French -> Je parle le français
+- We watch television -> Nous regardons la télévision
+- I close the door -> Je ferme la porte
+- He close the door -> Il ferme la porte
+- She lives in hyderabad -> Elle habite à hyderabad
+- We live in hyderabad -> Nous habitons à hyderabad
+- We sing a song -> Nous chantons une chanson
+- We study in NITC -> Nous étudions dans NITC
+- We study in class -> Nous étudions dans classe
+- I am Alvin A S -> Je m'appelle Alvin A S
+- I am Indian -> Je sius Indien
+- I live in Thiruvananthapuram -> Je habite Thiruvananthapuram
+- I study in NITC -> J'étudie à NITC
+- I am a student in NITC -> Je sius un étudient de NITC
+- I like to listen the music -> J'aime écouter la musique
+- I like to watch movie -> J'aime regarder le cinema
+- I like to visit and travel -> J'aime visiter et voyager
+- I want to go to France -> Je veux aller en France
+- There are 4 members in my family -> Ilya 4 members dans ma famille
+- I speak English and French -> Je parle l'anguluis et le français
+- I eat an apple -> Je mange une pomme
+- They eat an apple -> Ils mangent une pomme
+- I am fine -> Je vais bien
+- Where do you live? -> Où habites-tu?
+- Do you study in a class here? -> Étudiez-vous dans une classe ici?

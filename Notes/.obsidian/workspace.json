@@ -4,17 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "20df007cdc8e2dc4",
+        "id": "8b2990a35f0eb80b",
         "type": "tabs",
-        "dimension": 70.2239789196311,
         "children": [
           {
-            "id": "c564234e448be0fa",
+            "id": "b47fa68f762469f2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Sem 5/Computer Networks/Performance Metrics.md",
+                "file": "Sem 5/Compiler Design/Synthesis/Intermediate Representations/AST.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -29,16 +28,16 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Performance Metrics"
+              "title": "AST"
             }
           },
           {
-            "id": "e85e47b88c9063e8",
+            "id": "22bb17e96637dbd1",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Sem 5/Design and Analysis of Algorithms/Divide and Conquer.md",
+                "file": "Sem 5/Compiler Design/Synthesis/Intermediate Representations/Three-Address Code.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -53,27 +52,35 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Divide and Conquer"
+              "title": "Three-Address Code"
             }
-          }
-        ]
-      },
-      {
-        "id": "2b0fe54979d64d23",
-        "type": "tabs",
-        "dimension": 29.77602108036891,
-        "children": [
+          },
           {
-            "id": "ca47c3a927bb2f19",
+            "id": "d606fa8e0d04deb4",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "Sem 5/Compiler Design/Synthesis/Intermediate Representations.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Intermediate Representations"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -130,7 +137,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 321.5
+    "width": 321.5,
+    "collapsed": true
   },
   "right": {
     "id": "a6b5d8ed28d60df9",
@@ -146,7 +154,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Sem 5/Compiler Design/Analysis/Lexical Analysis/Lexical Analysis.md",
+                "file": "General/ML/ML.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -156,7 +164,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Lexical Analysis"
+              "title": "Backlinks for ML"
             }
           },
           {
@@ -222,58 +230,59 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "c564234e448be0fa",
+  "active": "22bb17e96637dbd1",
   "lastOpenFiles": [
-    "Sem 5/Computer Networks/OSI Model.md",
-    "Sem 5/Computer Networks/Spectrum Allocation.md",
-    "Sem 5/Computer Networks/Performance Metrics.md",
-    "Sem 5/Computer Networks/Computer Networks.md",
-    "Sem 5/Computer Networks/Transmission Modes.md",
-    "Sem 5/Computer Networks/Networking Concepts.md",
-    "Sem 5/Computer Networks/Network Topologies.md",
-    "Sem 5/Computer Networks/Network Models.md",
-    "Sem 5/Computer Networks/Network Identifiers.md",
-    "Sem 5/Computer Networks/Network Devices.md",
-    "Sem 5/Computer Networks/Multiple Access Techniques.md",
-    "Sem 5/Computer Networks/Data link Layer/Framing Methods.md",
-    "Sem 5/Computer Networks/Data link Layer/Flow Control.md",
-    "Sem 5/Computer Networks/Maximum Data Rate.md",
-    "Sem 5/Design and Analysis of Algorithms/Divide and Conquer.md",
-    "Sem 5/Design and Analysis of Algorithms/Lower bounds.md",
-    "Sem 5/Design and Analysis of Algorithms/Modular Arithmetics.md",
-    "Sem 5/Computer Networks/Data link Layer/Error Control.md",
-    "Sem 5/Computer Networks/Mid Sem Topics.md",
-    "Sem 5/Compiler Design/Analysis/Syntax Analysis/Miscellaneous.md",
-    "Sem 5/Compiler Design/Analysis/Syntax Analysis/Syntax Analysis.md",
-    "Sem 5/Compiler Design/Analysis/Syntax Analysis/Top Down Parsing Algorithms.md",
-    "Sem 5/Compiler Design/Analysis/Syntax Analysis/Parsing Algorithms.md",
-    "Sem 5/Compiler Design/Analysis/Syntax Analysis/Bottom Up Parsing Algorithms.md",
-    "Sem 5/Compiler Design/Analysis/Semantic Analysis/Semantic Analysis.md",
-    "Sem 5/Compiler Design/Analysis/Semantic Analysis/Concepts.md",
-    "Sem 5/Compiler Design/Analysis/Lexical Analysis/Identifier.png",
-    "Excalidraw",
-    "Sem 5/Compiler Design/Analysis/Syntax Analysis/LR(0) Automaton Example 1.png",
-    "Sem 5/Compiler Design/Analysis/Syntax Analysis/Bottom Up parsing example 1.png",
-    "Sem 5/Compiler Design/Analysis/Syntax Analysis/Parsing Example 1.png",
-    "Sem 5/Compiler Design/Analysis/Lexical Analysis/Relop.png",
-    "Untitled.canvas",
-    "Sem 5/Compiler Design/Analysis/Lexical Analysis/Number.png",
-    "Sem 5/Compiler Design/Analysis/Lexical Analysis/Identifier.canvas",
-    "Sem 5/Compiler Design/Analysis/Syntax Analysis",
-    "Sem 5/Compiler Design/Analysis/Semantic Analysis",
-    "Sem 5/Compiler Design/Synthesis",
-    "Sem 5/Compiler Design/Analysis",
-    "Sem 5/Compiler Design/Analysis/Lexical Analysis",
+    "Sem 5/Compiler Design/Synthesis/Intermediate Representations.md",
+    "Sem 5/Compiler Design/Synthesis/Intermediate Representations/Three-Address Code.md",
+    "Sem 5/Compiler Design/Synthesis/Intermediate Representations/AST.md",
+    "Sem 5/Compiler Design/Synthesis/Intermediate Representations/DAG.md",
+    "Sem 5/Compiler Design/Synthesis/Intermediate Representations",
+    "Sem 5/Compiler Design/Images/AST Parse Tree Difference.png",
+    "Sem 5/Compiler Design/Images",
+    "Sem 5/Compiler Design/Synthesis/Synthesis.md",
+    "Sem 5/Compiler Design/Untitled.md",
+    "Sem 5/Compiler Design/Untitled.canvas",
+    "Sem 5/French/Post Mid Semester/Tenses.md",
+    "Sem 5/French/Post Mid Semester/Questions.md",
+    "Sem 5/French/Post Mid Semester/Rough.md",
+    "Sem 5/French/Post Mid Semester/Paragraphs.md",
+    "Sem 5/French/Post Mid Semester/Verbs.md",
+    "Sem 5/French/Post Mid Semester/Revision.md",
+    "Sem 5/French/Pre Mid Semester/Self Introduction.md",
+    "Sem 5/French/Pre Mid Semester/Articles.md",
+    "Sem 5/French/Post Mid Semester",
+    "Sem 5/French/Pre Mid Semester",
+    "Sem 5/French/Pre Mid Semester/Miscellaneous.md",
+    "Sem 5/French/Pre Mid Semester/Words.md",
+    "Sem 5/French/Pre Mid Semester/Verbs.md",
+    "Sem 5/French/Pre Mid Semester/Sentences.md",
+    "Sem 5.zip",
+    "Sem 5/French/Pre Mid Semester/Pronouns.md",
+    "Sem 5/French/Pre Mid Semester/Assignment.md",
+    "Sem 5/French/Pre Mid Semester/Propositions.md",
+    "Sem 5/French/Pre Mid Semester/Numbers.md",
+    "Sem 5/French/Pre Mid Semester/Negation.md",
+    "Sem 5/French/Pre Mid Semester/French.md",
+    "Sem 5/Design and Analysis of Algorithms/End Sem/Divide And Conquer.md",
+    "Sem 5/Design and Analysis of Algorithms/End Sem/Dynamic Programming.md",
+    "Sem 5/Design and Analysis of Algorithms/End Sem/Approximation Algorithms.pdf",
+    "Sem 5/Design and Analysis of Algorithms/End Sem/Reductions.pdf",
+    "Sem 5/Design and Analysis of Algorithms/Images/Set Cover - Vertex Cover.png",
+    "Sem 5/Design and Analysis of Algorithms/Images/Satifiability.png",
+    "Sem 5/Design and Analysis of Algorithms/Images/SAT to Clique.png",
+    "Sem 5/Design and Analysis of Algorithms/Images/Problem Classes.png",
+    "Sem 5/Design and Analysis of Algorithms/Images/3 Coloring - 3 SAT.png",
+    "Sem 5/Design and Analysis of Algorithms/Images/3 Colorability.png",
+    "Sem 5/Design and Analysis of Algorithms.zip",
+    "Sem 5/Design and Analysis of Algorithms/Images/Vertex Cover - Independent Set.png",
+    "Sem 5/Design and Analysis of Algorithms/Untitled.base",
+    "Sem 5/Design and Analysis of Algorithms/End Sem.zip",
+    "Sem 5/Computer Networks/Images/Classful Addressing.png",
     "Sem 5/Design and Analysis of Algorithms/Sorting.canvas",
+    "Sem 5/Compiler Design/Analysis/Lexical Analysis/Identifier.png",
+    "Untitled.canvas",
+    "Sem 5/Compiler Design/Analysis/Lexical Analysis/Identifier.canvas",
     "Sem 5/Design and Analysis of Algorithms/Multiplication Example.canvas",
-    "Sem 5/Computer Networks/Images/OFDM vs FDMA.png",
-    "Sem 5/Computer Networks/Data link Layer/Flow Control vs Conjuction Control.canvas",
-    "Untitled.base",
-    "Sem 5/Computer Networks/Data link Layer",
-    "Sem 5/Computer Networks/Images/Token Ring.png",
-    "Sem 5/Computer Networks/Images/Star.png",
-    "Sem 5/Computer Networks/Images/Ring.png",
-    "Sem 5/Computer Networks/Images",
-    "Sem 5/French"
+    "Sem 5/Computer Networks/Data link Layer/Flow Control vs Conjuction Control.canvas"
   ]
 }

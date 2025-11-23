@@ -2,7 +2,6 @@
 - This is considered the back end part
 
 ### Code Improving Transformations
----
 - Code improving transformations are machine independent / dependent
 
 >[!example]

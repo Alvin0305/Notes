@@ -50,5 +50,9 @@
   "minimal-style@@h4-l": true,
   "minimal-style@@h2-size": "1.6em",
   "minimal-style@@h1-size": "1.8em",
-  "minimal-style@@h5-size": "0.95em"
+  "minimal-style@@h5-size": "0.95em",
+  "minimal-style@@h5-font": "Comic Sans MS",
+  "minimal-style@@h5-variant": "normal",
+  "minimal-style@@h5-l": true,
+  "minimal-style@@base@@dark": "#050505"
 }

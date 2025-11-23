@@ -6,6 +6,8 @@
 - Data link Layer
 - Physical Layer
 
+>[!tip] 
+>Please Do Not Throw Sausage Pizza Away
 #### Application Layer
 - Provide network services directly to the user/application
 - example: Web Browsers, email clients, file transfer apps
@@ -62,7 +64,7 @@
 	- Finds the best path for data (routing)
 	- Delivers packets to the correct device on a different network
 - Protocols:
-	- IP(IPv4, IPv6)
+	- IP (IPv4, IPv6)
 	- ARP
 - Devices:
 	- Router
