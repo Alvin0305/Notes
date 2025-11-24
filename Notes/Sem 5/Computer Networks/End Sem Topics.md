@@ -1,12 +1,12 @@
 #### Portions
-- [ ] OSI and TCP/IP model, Performance Metrics, and Error Correction (Hamming Code)
+- [x] OSI and TCP/IP model, Performance Metrics, and Error Correction (Hamming Code)
 - [x] Virtual LANs 
-- [ ] MAC protocols (ALOHA, its types and CSMA/CD)
+- [x] MAC protocols (ALOHA, its types and CSMA/CD)
 - [ ] TCP/IP Basics, Headers and its fields for 802.3, IPv4, IPv6, and TCP
 - [x] Address Resolution Protocol
-- [x] Classless, Classful addressing and Subnetting
+- [ ] Classless, Classful addressing and Subnetting
 - [x] Routing (Distance Vector and Link State Routing)
-- [ ] Traffic Policing and Shaping
+- [x] Traffic Policing and Shaping
 - [x] E-mail Server and its agents
 - [ ] TCP Congestion Control (Tahoe)
 - [x] DNS and HTTP

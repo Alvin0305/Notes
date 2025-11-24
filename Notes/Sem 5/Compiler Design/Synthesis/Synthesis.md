@@ -1,6 +1,8 @@
 - Generate code from output of analysis
 - This is considered the back end part
 
+![[Intermediate Representations]]
+
 ### Code Improving Transformations
 - Code improving transformations are machine independent / dependent
 

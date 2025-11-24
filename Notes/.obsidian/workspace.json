@@ -4,40 +4,29 @@
     "type": "split",
     "children": [
       {
-        "id": "8b2990a35f0eb80b",
+        "id": "e29bee2ae2e7377d",
         "type": "tabs",
         "children": [
           {
-            "id": "b47fa68f762469f2",
+            "id": "603aaaa49e592d91",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "bases",
               "state": {
-                "file": "Sem 5/Compiler Design/Synthesis/Intermediate Representations/AST.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
+                "file": "Sem 5/Compiler Design/Index.base",
+                "viewName": "View"
               },
-              "icon": "lucide-file",
-              "title": "AST"
+              "icon": "lucide-table",
+              "title": "Index"
             }
           },
           {
-            "id": "22bb17e96637dbd1",
+            "id": "01b0fa809245ea42",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Sem 5/Compiler Design/Synthesis/Intermediate Representations/Three-Address Code.md",
+                "file": "Sem 5/Compiler Design/Synthesis/Code Improving Transformations/Simple Transformations.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,16 +41,16 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Three-Address Code"
+              "title": "Simple Transformations"
             }
           },
           {
-            "id": "d606fa8e0d04deb4",
+            "id": "b0c1b582a33522a3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Sem 5/Compiler Design/Synthesis/Intermediate Representations.md",
+                "file": "Sem 5/Compiler Design/Synthesis/Activation Record.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -76,11 +65,11 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Intermediate Representations"
+              "title": "Activation Record"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -112,7 +101,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#todo",
+                "query": "cdma",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -230,56 +219,56 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "22bb17e96637dbd1",
+  "active": "b0c1b582a33522a3",
   "lastOpenFiles": [
-    "Sem 5/Compiler Design/Synthesis/Intermediate Representations.md",
-    "Sem 5/Compiler Design/Synthesis/Intermediate Representations/Three-Address Code.md",
-    "Sem 5/Compiler Design/Synthesis/Intermediate Representations/AST.md",
+    "Sem 5/Compiler Design/Topics.md",
+    "Sem 5/Compiler Design/Synthesis/Activation Record.md",
+    "Sem 5/Compiler Design/Synthesis/Code Improving Transformations/Variables.md",
+    "Sem 5/Compiler Design/Synthesis/Code Improving Transformations/Simple Transformations.md",
+    "Sem 5/Compiler Design/Index.base",
     "Sem 5/Compiler Design/Synthesis/Intermediate Representations/DAG.md",
-    "Sem 5/Compiler Design/Synthesis/Intermediate Representations",
-    "Sem 5/Compiler Design/Images/AST Parse Tree Difference.png",
-    "Sem 5/Compiler Design/Images",
+    "Sem 5/Compiler Design/Synthesis/Code Improving Transformations/Code Improving Transformations.md",
+    "Sem 5/Compiler Design/Synthesis/Code Improving Transformations/Constant Folding.md",
+    "Sem 5/Compiler Design/Synthesis/Code Improving Transformations/Constant Propagation.md",
+    "Sem 5/Compiler Design/Synthesis/Code Improving Transformations/Dead Code Elimination.md",
+    "Sem 5/Compiler Design/Synthesis/Code Improving Transformations/Copy Propagation.md",
+    "Sem 5/Compiler Design/Synthesis/Code Improving Transformations/Common Sub-Expression Elimination.md",
+    "Sem 5/Compiler Design/Synthesis/Intermediate Representations/TAC.md",
+    "Sem 5/Compiler Design/Synthesis/Code Improving Transformations",
+    "Sem 5/Compiler Design/Synthesis/Intermediate Representations/Relative Addressing.md",
     "Sem 5/Compiler Design/Synthesis/Synthesis.md",
-    "Sem 5/Compiler Design/Untitled.md",
+    "Sem 5/Compiler Design/Synthesis/Intermediate Representations/Intermediate Representations.md",
+    "Tutorial_3__Predictive_Parsing-First and Follow.pdf",
+    "Lecture__22__Semantic_Analysis___Type_Expressions__Type_checking__Type_Conversions.pdf",
+    "Lecture_21__Semantic_Analysis___Symbol_Table.pdf",
+    "Lecture_20__Syntax_Directed_Translation__Introduction.pdf",
+    "Lecture_19__Bottom_up_Parsing_8_Miscellaneous_topics.pdf",
+    "Lecture_18__Bottom_Up_Parsing_7__LALR_Parsing.pdf",
+    "Lecture_17__Bottom_up_Parsing_6__LR_1__Parsing.pdf",
+    "Lecture_16__Bottom_up_Parsing_5___SLR_Parsing.pdf",
+    "2025-11-24.md",
+    "Sem 5/Compiler Design/Synthesis/Intermediate Representations/AST.md",
+    "Sem 5/Compiler Design/Synthesis/Intermediate Representations/SSA.md",
+    "Untitled 1.md",
+    "Sem 5/Compiler Design/Images/DAG__2.png",
+    "Sem 5/Compiler Design/Images/DAG__1.png",
+    "Sem 5/Computer Networks/General/Headers.md",
+    "Sem 5/Computer Networks/General/Network Devices.md",
+    "Sem 5/Computer Networks/End Sem Topics.md",
+    "Sem 5/Computer Networks/General/Networking Concepts.md",
+    "Sem 5/Computer Networks/General/Network Topologies.md",
+    "Sem 5/Computer Networks/General/Network Models/OSI Model.md",
+    "Sem 5/Computer Networks/General/Equations/Performance Metrics.md",
+    "Sem 5/Computer Networks/Images/Classful Addressing.png",
+    "Sem 5/Compiler Design/Images/AST Parse Tree Difference.png",
     "Sem 5/Compiler Design/Untitled.canvas",
-    "Sem 5/French/Post Mid Semester/Tenses.md",
-    "Sem 5/French/Post Mid Semester/Questions.md",
-    "Sem 5/French/Post Mid Semester/Rough.md",
-    "Sem 5/French/Post Mid Semester/Paragraphs.md",
-    "Sem 5/French/Post Mid Semester/Verbs.md",
-    "Sem 5/French/Post Mid Semester/Revision.md",
-    "Sem 5/French/Pre Mid Semester/Self Introduction.md",
-    "Sem 5/French/Pre Mid Semester/Articles.md",
-    "Sem 5/French/Post Mid Semester",
-    "Sem 5/French/Pre Mid Semester",
-    "Sem 5/French/Pre Mid Semester/Miscellaneous.md",
-    "Sem 5/French/Pre Mid Semester/Words.md",
-    "Sem 5/French/Pre Mid Semester/Verbs.md",
-    "Sem 5/French/Pre Mid Semester/Sentences.md",
-    "Sem 5.zip",
-    "Sem 5/French/Pre Mid Semester/Pronouns.md",
-    "Sem 5/French/Pre Mid Semester/Assignment.md",
-    "Sem 5/French/Pre Mid Semester/Propositions.md",
-    "Sem 5/French/Pre Mid Semester/Numbers.md",
-    "Sem 5/French/Pre Mid Semester/Negation.md",
-    "Sem 5/French/Pre Mid Semester/French.md",
-    "Sem 5/Design and Analysis of Algorithms/End Sem/Divide And Conquer.md",
-    "Sem 5/Design and Analysis of Algorithms/End Sem/Dynamic Programming.md",
-    "Sem 5/Design and Analysis of Algorithms/End Sem/Approximation Algorithms.pdf",
-    "Sem 5/Design and Analysis of Algorithms/End Sem/Reductions.pdf",
     "Sem 5/Design and Analysis of Algorithms/Images/Set Cover - Vertex Cover.png",
     "Sem 5/Design and Analysis of Algorithms/Images/Satifiability.png",
     "Sem 5/Design and Analysis of Algorithms/Images/SAT to Clique.png",
     "Sem 5/Design and Analysis of Algorithms/Images/Problem Classes.png",
     "Sem 5/Design and Analysis of Algorithms/Images/3 Coloring - 3 SAT.png",
     "Sem 5/Design and Analysis of Algorithms/Images/3 Colorability.png",
-    "Sem 5/Design and Analysis of Algorithms.zip",
-    "Sem 5/Design and Analysis of Algorithms/Images/Vertex Cover - Independent Set.png",
-    "Sem 5/Design and Analysis of Algorithms/Untitled.base",
-    "Sem 5/Design and Analysis of Algorithms/End Sem.zip",
-    "Sem 5/Computer Networks/Images/Classful Addressing.png",
     "Sem 5/Design and Analysis of Algorithms/Sorting.canvas",
-    "Sem 5/Compiler Design/Analysis/Lexical Analysis/Identifier.png",
     "Untitled.canvas",
     "Sem 5/Compiler Design/Analysis/Lexical Analysis/Identifier.canvas",
     "Sem 5/Design and Analysis of Algorithms/Multiplication Example.canvas",

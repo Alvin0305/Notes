@@ -1,3 +1,8 @@
+#### Bandwidth Delay Product
+$$\text{Bandwidth Delay Product} = Bandwidth \times \text{Delay}$$
+$$\text{Bandwidth Delay Product} \approx Bandwidth \times \text{Round Trip Time}$$
+- This is the maximum number of bits which can be held in link.
+- Here Delay is approximately equal to RTT because, for RTT, we consider message of very small size
 #### Delay
 
 #Transmission-Delay
@@ -15,6 +20,14 @@ $$PD = \frac{distance}{speed}$$
 
 #Latency 
 $$L = TD + PD + QD$$
+#RTT
+- Round Trip Time
+- Time for a packet to go from sender → receiver → back to sender
+- The packet will be very small such that its transmission delay can be neglected
+$$\text{Round Trip Time} \approx 2 \times \text{Propagation Delay}$$
+Example:
+- Ping command measures RTT
+Used heavily in TCP for timeout calculations.
 #### Loss
 
 >[! Note]
@@ -22,7 +35,6 @@ $$L = TD + PD + QD$$
 >- generation
 >- transmission
 >- transit
-
 
 >[!Note]
 >Reasons for loss
@@ -43,3 +55,6 @@ but it can temporarily exceed, resulting in congestion or packet loss
 
 Practically Throughput < Bandwidth
 Throughput can reduce drastically when collisions occur
+#### Utilization (Efficiency)
+$$Efficiency = \frac{\text{Actual used Bandwidth}}{\text{Total available bandwidth}} \times 100$$
+

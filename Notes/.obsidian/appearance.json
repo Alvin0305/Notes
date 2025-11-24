@@ -7,5 +7,7 @@
   "cssTheme": "Minimal",
   "showViewHeader": true,
   "nativeMenus": false,
-  "theme": "system"
+  "theme": "system",
+  "accentColor": "#b955dd",
+  "showRibbon": true
 }

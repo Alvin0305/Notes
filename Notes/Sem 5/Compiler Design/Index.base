@@ -1,0 +1,24 @@
+views:
+  - type: table
+    name: Table
+    sort:
+      - property: file.name
+        direction: ASC
+  - type: table
+    name: View
+    filters:
+      and:
+        - file.path.startsWith("Sem 5/Compiler Design")
+        - file.ext != "png"
+    order:
+      - file.folder
+      - file.name
+      - file.backlinks
+      - file.basename
+    sort:
+      - property: file.path
+        direction: ASC
+      - property: file.name
+        direction: ASC
+    columnSize:
+      file.folder: 486

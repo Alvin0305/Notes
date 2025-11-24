@@ -1,0 +1,28 @@
+- [ ] Lecture_7___Parsing___Introduction.pdf
+- [ ] Lecture_8__Top_Down_Parsing____1.pdf
+- [ ] Lecture_9__Top_Down_Parsing___2.pdf
+- [ ] Lecture_10__Top_Down_Parsing_3.pdf
+- [ ] Lecture_11__Top_Down_Parsing_4.pdf
+- [ ] Lecture_12__Bottom_Up_Parsing_1.pdf
+- [ ] Lecture_13__Bottom_Up_Parsing_2.pdf
+- [ ] Lecture_14__Bottom_Up_Parsing_3___LR_Parsing.pdf
+- [ ] Lecture_15__Bottom_up_Parsing_4___LR_0__Parsing.pdf
+- [ ] Lecture_16__Bottom_up_Parsing_5___SLR_Parsing.pdf
+- [ ] Lecture_17__Bottom_up_Parsing_6__LR_1__Parsing.pdf
+- [ ] Lecture_18__Bottom_Up_Parsing_7__LALR_Parsing.pdf
+- [ ] Lecture_19__Bottom_up_Parsing_8_Miscellaneous_topics.pdf
+- [ ] Lecture_20__Syntax_Directed_Translation__Introduction.pdf
+- [ ] Lecture_21__Semantic_Analysis___Symbol_Table.pdf
+- [ ] Lecture_22__Semantic_Analysis___Type_Expressions__Type_checking__Type_Conversions.pdf
+- [x] Lecture_23__Intermediate_Representations.pdf
+- [x] Lecture_24__Intermediate_Code_Generation___Arithmetic_Expressions__Assignment.pdf
+- [x] Lecture_25__Intermediate_Code_Generation_Conditionals_and_Booleans.pdf
+- [x] Lecture_26__Translation_of_Boolean_Expressions.pdf
+- [x] Lecture_27__Intermediate_Code_Generation_while_loop__sequence.pdf
+- [x] Lecture_28___Processing_Declarations__Types_and_Relative_Addresses_for_names (1).pdf
+- [x] Lecture_29__30__Translation_of_Function_calls_and_Array_References.pdf
+- [x] Lecture_31__Code_Optimization___Introduction (1).pdf
+- [x] Lecture_32_Code_Optimization__Control_Flow_Graph.pdf
+- [x] Lecture_33__Code_Optimization___Data_flow_Analysis.pdf
+- [ ] Tutorial_3__Predictive_Parsing-First and Follow.pdf
+- [ ] Runtime Environments.pptx.pdf

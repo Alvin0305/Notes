@@ -6,5 +6,9 @@
 
 ![[AST]]
 
-![[Three-Address Code]]
+![[TAC]]
+
+![[DAG]]
+
+![[SSA]]
 

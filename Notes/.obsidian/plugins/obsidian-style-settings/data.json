@@ -35,7 +35,7 @@
   "minimal-style@@active-line-on": true,
   "minimal-style@@tabs-style": "tabs-modern",
   "minimal-style@@tab-stacked-pane-width": 700,
-  "minimal-style@@ribbon-style": "ribbon-vertical-expand",
+  "minimal-style@@ribbon-style": "ribbon-hidden",
   "minimal-style@@embed-underline": false,
   "minimal-style@@folding-offset": 32,
   "minimal-style@@metadata-dividers": false,
@@ -54,5 +54,7 @@
   "minimal-style@@h5-font": "Comic Sans MS",
   "minimal-style@@h5-variant": "normal",
   "minimal-style@@h5-l": true,
-  "minimal-style@@base@@dark": "#050505"
+  "minimal-style@@base@@dark": "#050505",
+  "minimal-style@@bg3@@dark": "#202020",
+  "minimal-style@@ui1@@dark": "#323232"
 }

@@ -10,4 +10,4 @@
 9. ![[Data link Layer]]
 10. ![[Maximum Data Rate]]
 11. ![[Spectrum Allocation]]
-12. ![[Multiple Access Techniques]]
+12. ![[Channelization Protocols]]
