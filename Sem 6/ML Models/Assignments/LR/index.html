@@ -25,7 +25,7 @@
     
     
       
-        <title>Question 2: Multiple Linear Regression - Notes</title>
+        <title>LR - Notes</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#question-2-multiple-linear-regression" class="md-skip">
+        <a href="#21-target-function" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Question 2: Multiple Linear Regression
+              LR
             
           </span>
         </div>
@@ -5405,8 +5405,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -5415,7 +5413,7 @@
   <span class="md-ellipsis">
     
   
-    Question 2: Multiple Linear Regression
+    LR
   
 
     
@@ -5433,7 +5431,7 @@
   <span class="md-ellipsis">
     
   
-    Question 2: Multiple Linear Regression
+    LR
   
 
     
@@ -5448,8 +5446,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-  
-    
   
   
     <label class="md-nav__title" for="__toc">
@@ -5594,6 +5590,112 @@
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#question-3-polynomial-regression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Question 3: Polynomial Regression
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Question 3: Polynomial Regression">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-data-overview-and-pattern-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Data Overview and Pattern Analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 Data Overview and Pattern Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observed-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observed Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-model-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Model Comparison
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Model Comparison">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learned-model-equations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learned Model Equations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-comparison-cost-mse2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Comparison (Cost = MSE/2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-predictions-on-unseen-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Predictions on Unseen Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-model-overfitting-underfitting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Model overfitting, underfitting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -5674,8 +5776,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -5822,6 +5922,112 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#question-3-polynomial-regression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Question 3: Polynomial Regression
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Question 3: Polynomial Regression">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-data-overview-and-pattern-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Data Overview and Pattern Analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 Data Overview and Pattern Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observed-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observed Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-model-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Model Comparison
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Model Comparison">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learned-model-equations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learned Model Equations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-comparison-cost-mse2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Comparison (Cost = MSE/2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-predictions-on-unseen-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Predictions on Unseen Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-model-overfitting-underfitting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Model overfitting, underfitting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5839,12 +6045,10 @@
 
 
 
-<h1 id="question-2-multiple-linear-regression">Question 2: Multiple Linear Regression<a class="headerlink" href="#question-2-multiple-linear-regression" title="Permanent link">&para;</a></h1>
-<hr />
 <h2 id="21-target-function">2.1 Target Function<a class="headerlink" href="#21-target-function" title="Permanent link">&para;</a></h2>
 <p>In this problem, we aim to predict a student’s <strong>Exam Score</strong> using two independent variables: <strong>Study Hours</strong> and <strong>Sleep Hours</strong>.</p>
 <h3 id="mathematical-model">Mathematical Model<a class="headerlink" href="#mathematical-model" title="Permanent link">&para;</a></h3>
-<p><span class="arithmatex">\(y = w_1 \cdot x_1 + w_2 \cdot x_2 + b\)</span></p>
+<div class="arithmatex">\[y = w_1 \cdot x_1 + w_2 \cdot x_2 + b\]</div>
 <h3 id="variable-definitions">Variable Definitions<a class="headerlink" href="#variable-definitions" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>y</strong>: Exam Score (dependent variable)</li>

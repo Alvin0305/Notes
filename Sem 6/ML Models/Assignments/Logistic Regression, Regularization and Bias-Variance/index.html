@@ -5404,7 +5404,7 @@
   <span class="md-ellipsis">
     
   
-    Question 2: Multiple Linear Regression
+    LR
   
 
     
@@ -5652,11 +5652,11 @@
 <hr />
 <h2 id="2-the-sigmoid-flattening">2. The Sigmoid "Flattening"<a class="headerlink" href="#2-the-sigmoid-flattening" title="Permanent link">&para;</a></h2>
 <p>The sigmoid function is defined as:</p>
-<div class="arithmatex">\[\sigma(z) = \frac{1}{1 + e^{-(wx + b)}}\]</div>
-<ul>
-<li><strong>Flattening:</strong> When L2 forces weights (<span class="arithmatex">\(w\)</span>) to be very small, the input <span class="arithmatex">\(z\)</span> stays near zero. This creates a <strong>flatter, less responsive curve</strong> rather than a sharp "S" shape.    </li>
-<li><strong>The Problem:</strong> A flatter curve means the model is less sensitive to changes in patient data. Because the disease is so rare, a flat curve makes it nearly impossible for the output probability to "climb" high enough to cross the 0.5 threshold to predict "Sick."</li>
-</ul>
+<p>$$
+\sigma(z) = \frac{1}{1 + e^{-(wx + b)}}
+$$
+- <strong>Flattening:</strong> When L2 forces weights (<span class="arithmatex">\(w\)</span>) to be very small, the input <span class="arithmatex">\(z\)</span> stays near zero. This creates a <strong>flatter, less responsive curve</strong> rather than a sharp "S" shape.  <br />
+- <strong>The Problem:</strong> A flatter curve means the model is less sensitive to changes in patient data. Because the disease is so rare, a flat curve makes it nearly impossible for the output probability to "climb" high enough to cross the 0.5 threshold to predict "Sick."</p>
 <hr />
 <h2 id="3-the-accuracy-paradox">3. The Accuracy Paradox<a class="headerlink" href="#3-the-accuracy-paradox" title="Permanent link">&para;</a></h2>
 <p>In a dataset where 99.5% of people are healthy, accuracy is a trap.</p>
