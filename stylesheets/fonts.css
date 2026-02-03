@@ -1,0 +1,8 @@
+/* Fira Code */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap');
+
+/* Comic Sans (system fallback + web-safe) */
+@font-face {
+    font-family: 'Comic Sans MS';
+    src: local('Comic Sans MS'), local('Comic Sans');
+}

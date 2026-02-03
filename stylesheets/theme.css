@@ -1,0 +1,14 @@
+/* Body text */
+body {
+    font-family: 'Fira Code', monospace;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+}
+
+/* Code blocks */
+code, pre {
+    font-family: 'Fira Code', monospace;
+}

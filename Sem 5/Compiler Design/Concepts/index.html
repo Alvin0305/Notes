@@ -1,0 +1,7230 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://Alvin0305.github.io/Notes/Sem%205/Compiler%20Design/Concepts/">
+      
+      
+        <link rel="prev" href="../Compiler%20Design/">
+      
+      
+        <link rel="next" href="../Topics/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Concepts - Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/fonts.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/theme.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#parse-tree" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Notes" class="md-header__button md-logo" aria-label="Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Concepts
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="purple"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Notes" class="md-nav__button md-logo" aria-label="Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sem 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sem 5
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Sem 5
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compiler Design
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Compiler Design
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Compiler%20Design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compiler Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#parse-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parse Tree
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#abstract-syntax-tree-ast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Abstract Syntax Tree (AST)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#symbol-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Symbol Table
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intermediate-representation-ir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intermediate Representation (IR)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#three-address-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three Address Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context-free-grammar-cfg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context Free Grammar (CFG)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#derivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Derivation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#left-most-derivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Left most derivation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#right-most-derivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Right most derivation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sentential-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sentential Form
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sentence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sentence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Language
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ambiguous-grammar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ambiguous Grammar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FIRST
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#follow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FOLLOW
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#left-recursive-grammar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Left Recursive Grammar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conversion-of-left-recursive-to-right-recursive-grammar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conversion of Left Recursive to Right Recursive Grammar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handle-pruning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handle Pruning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Item
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Goto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lr0-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LR(0) Item
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#augmented-grammar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Augmented Grammar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lr0-automaton" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LR(0) Automaton
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lr0-parsing-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LR(0) Parsing Table
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slr-parsing-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SLR Parsing Table
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shift-reduce-conflict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shift Reduce Conflict
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viable-prefix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Viable Prefix
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_4" id="__nav_2_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analysis
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Analysis
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analysis/Analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analysis/Grammar%20Types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grammar Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_4_3" id="__nav_2_1_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lexical Analysis
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_1_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lexical Analysis
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analysis/Lexical%20Analysis/Lexical%20Analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lexical Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analysis/Lexical%20Analysis/Regular%20Definitions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Regular Definitions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_4_4" id="__nav_2_1_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semantic Analysis
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_1_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Semantic Analysis
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analysis/Semantic%20Analysis/Semantic%20Analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semantic Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_4_5" id="__nav_2_1_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syntax Analysis
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_1_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Syntax Analysis
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analysis/Syntax%20Analysis/Bottom%20Up%20Parsing%20Algorithms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bottom Up Parsing Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analysis/Syntax%20Analysis/Miscellaneous/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Miscellaneous
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analysis/Syntax%20Analysis/Parsing%20Algorithms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parsing Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analysis/Syntax%20Analysis/Syntax%20Analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Syntax Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analysis/Syntax%20Analysis/Top%20Down%20Parsing%20Algorithms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Top Down Parsing Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_5" id="__nav_2_1_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Synthesis
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Synthesis
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Synthesis/Activation%20Record/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Activation Record
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Synthesis/Synthesis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Synthesis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_5_3" id="__nav_2_1_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Improving Transformations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_1_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Code Improving Transformations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Synthesis/Code%20Improving%20Transformations/Code%20Improving%20Transformations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code Improving Transformations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Synthesis/Code%20Improving%20Transformations/Common%20Sub-Expression%20Elimination/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Common Sub Expression Elimination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Synthesis/Code%20Improving%20Transformations/Constant%20Folding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Constant Folding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Synthesis/Code%20Improving%20Transformations/Constant%20Propagation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Constant Propagation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Synthesis/Code%20Improving%20Transformations/Copy%20Propagation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Copy Propagation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Synthesis/Code%20Improving%20Transformations/Dead%20Code%20Elimination/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dead Code Elimination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Synthesis/Code%20Improving%20Transformations/Simple%20Transformations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simple Transformations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Synthesis/Code%20Improving%20Transformations/Variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_5_4" id="__nav_2_1_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intermediate Representations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_1_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Intermediate Representations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Synthesis/Intermediate%20Representations/AST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AST
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Synthesis/Intermediate%20Representations/DAG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Synthesis/Intermediate%20Representations/Intermediate%20Representations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intermediate Representations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Synthesis/Intermediate%20Representations/Relative%20Addressing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Relative Addressing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Synthesis/Intermediate%20Representations/SSA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SSA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Synthesis/Intermediate%20Representations/TAC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TAC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Networks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computer Networks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/Computer%20Networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/End%20Sem%20Topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    End Sem Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/Mid%20Sem%20Topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mid Sem Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_4" id="__nav_2_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application Layer
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Application Layer
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/Application%20Layer/DNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/Application%20Layer/Email/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Email
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_5" id="__nav_2_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data link Layer
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data link Layer
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/Data%20link%20Layer/Data%20link%20Layer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data link Layer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/Data%20link%20Layer/Error%20Control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Error Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/Data%20link%20Layer/Flow%20Control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flow Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/Data%20link%20Layer/Framing%20Methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Framing Methods
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_5_5" id="__nav_2_2_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multiple Access Protocols
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Multiple Access Protocols
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_5_5_1" id="__nav_2_2_5_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Channelization Protocols
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_2_5_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_5_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Channelization Protocols
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/Data%20link%20Layer/Multiple%20Access%20Protocols/Channelization%20Protocols/CDMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CDMA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/Data%20link%20Layer/Multiple%20Access%20Protocols/Channelization%20Protocols/Channelization%20Protocols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Channelization Protocols
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/Data%20link%20Layer/Multiple%20Access%20Protocols/Channelization%20Protocols/FDMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FDMA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/Data%20link%20Layer/Multiple%20Access%20Protocols/Channelization%20Protocols/OFDM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OFDM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/Data%20link%20Layer/Multiple%20Access%20Protocols/Channelization%20Protocols/STDMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    STDMA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/Data%20link%20Layer/Multiple%20Access%20Protocols/Channelization%20Protocols/TDMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TDMA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_5_5_2" id="__nav_2_2_5_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Random Access Protocols
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_2_2_5_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_5_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Random Access Protocols
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/Data%20link%20Layer/Multiple%20Access%20Protocols/Random%20Access%20Protocols/ALOHA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ALOHA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/Data%20link%20Layer/Multiple%20Access%20Protocols/Random%20Access%20Protocols/CSMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CSMA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/Data%20link%20Layer/Multiple%20Access%20Protocols/Random%20Access%20Protocols/Random%20Access%20Protocols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Random Access Protocols
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_6" id="__nav_2_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    General
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/General/Headers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Headers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/General/Network%20Devices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/General/Network%20Identifiers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network Identifiers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/General/Network%20Topologies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network Topologies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/General/Networking%20Concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_6_6" id="__nav_2_2_6_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Equations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_6_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_6_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Equations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/General/Equations/Maximum%20Data%20Rate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Maximum Data Rate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/General/Equations/Performance%20Metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Performance Metrics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_6_7" id="__nav_2_2_6_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network Models
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_6_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_6_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Network Models
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/General/Network%20Models/Network%20Models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/General/Network%20Models/OSI%20Model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OSI Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_7" id="__nav_2_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network Layer
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Network Layer
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_7_1" id="__nav_2_2_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IP Address Classes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    IP Address Classes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/Network%20Layer/IP%20Address%20Classes/Classful%20Addressing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classful Addressing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/Network%20Layer/IP%20Address%20Classes/Classless%20Addressing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classless Addressing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/Network%20Layer/IP%20Address%20Classes/IP%20Address%20Classes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IP Address Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_8" id="__nav_2_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physical Layer
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Physical Layer
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/Physical%20Layer/Spectrum%20Allocation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spectrum Allocation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/Physical%20Layer/Transmission%20Modes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transmission Modes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_9" id="__nav_2_2_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wireshark
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Wireshark
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/Wireshark/GPT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/Wireshark/Units/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Units
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Computer%20Networks/Wireshark/ip%20addr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ip addr
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DBMS Lab
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DBMS Lab
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DBMS%20Lab/7%20Layers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7 Layers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DBMS%20Lab/Attributes%20and%20Methods%20in%20each%20class/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Attributes and Methods in each class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DBMS%20Lab/Important%20Structures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Important Structures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DBMS%20Lab/Stages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DBMS%20Lab/Todo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Todo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_6" id="__nav_2_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Buffer Layer
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Buffer Layer
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DBMS%20Lab/Buffer%20Layer/Block%20Buffer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Block Buffer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DBMS%20Lab/Buffer%20Layer/Buffer%20Layer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Buffer Layer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DBMS%20Lab/Buffer%20Layer/Ind%20Buffer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ind Buffer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DBMS%20Lab/Buffer%20Layer/Ind%20Internal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ind Internal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DBMS%20Lab/Buffer%20Layer/Ind%20Leaf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ind Leaf
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DBMS%20Lab/Buffer%20Layer/Rec%20Buffer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rec Buffer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DBMS%20Lab/Buffer%20Layer/Static%20Buffer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Static Buffer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_7" id="__nav_2_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physical Layer
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Physical Layer
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DBMS%20Lab/Physical%20Layer/Physical%20Layer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physical Layer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design and Analysis of Algorithms
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Design and Analysis of Algorithms
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Design%20and%20Analysis%20of%20Algorithms/Algorithm%20with%20Numbers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithm with Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Design%20and%20Analysis%20of%20Algorithms/DAA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DAA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Design%20and%20Analysis%20of%20Algorithms/Divide%20and%20Conquer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Divide and Conquer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Design%20and%20Analysis%20of%20Algorithms/Lower%20bounds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lower bounds
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Design%20and%20Analysis%20of%20Algorithms/Modular%20Arithmetics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modular Arithmetics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Design%20and%20Analysis%20of%20Algorithms/Notations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Design%20and%20Analysis%20of%20Algorithms/Time%20Complexity%20Analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Time Complexity Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Design%20and%20Analysis%20of%20Algorithms/Useful%20Theorems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Useful Theorems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_9" id="__nav_2_4_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    End Sem
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    End Sem
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Design%20and%20Analysis%20of%20Algorithms/End%20Sem/Approximation%20Algorithms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Approximation Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Design%20and%20Analysis%20of%20Algorithms/End%20Sem/Divide%20And%20Conquer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Divide And Conquer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Design%20and%20Analysis%20of%20Algorithms/End%20Sem/Dynamic%20Programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dynamic Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Design%20and%20Analysis%20of%20Algorithms/End%20Sem/Greedy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Greedy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Design%20and%20Analysis%20of%20Algorithms/End%20Sem/Problem%20Classes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Problem Classes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Design%20and%20Analysis%20of%20Algorithms/End%20Sem/Reductions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reductions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Design%20and%20Analysis%20of%20Algorithms/End%20Sem/Topics%20to%20Study/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. DIVIDE AND CONQUER
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E SIM Provider
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    E SIM Provider
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../E-SIM%20Provider/E-SIM%20Provider/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E SIM Provider
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    French
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    French
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6_1" id="__nav_2_6_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Post Mid Semester
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Post Mid Semester
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../French/Post%20Mid%20Semester/Paragraphs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Paragraphs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../French/Post%20Mid%20Semester/Questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../French/Post%20Mid%20Semester/Revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Revision
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../French/Post%20Mid%20Semester/Rough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rough
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../French/Post%20Mid%20Semester/Tenses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tenses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../French/Post%20Mid%20Semester/Verbs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verbs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6_2" id="__nav_2_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pre Mid Semester
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pre Mid Semester
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../French/Pre%20Mid%20Semester/Articles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Articles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../French/Pre%20Mid%20Semester/Assignment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assignment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../French/Pre%20Mid%20Semester/French/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    French
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../French/Pre%20Mid%20Semester/Miscellaneous/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Miscellaneous
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../French/Pre%20Mid%20Semester/Negation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Negation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../French/Pre%20Mid%20Semester/Numbers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Numbers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../French/Pre%20Mid%20Semester/Pronouns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pronouns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../French/Pre%20Mid%20Semester/Propositions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Propositions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../French/Pre%20Mid%20Semester/Self%20Introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../French/Pre%20Mid%20Semester/Sentences/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sentences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../French/Pre%20Mid%20Semester/Verbs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verbs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../French/Pre%20Mid%20Semester/Words/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Words
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sem 6
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Sem 6
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compiler Lab
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Compiler Lab
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Sem%206/Compiler%20Lab/Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ML Models
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ML Models
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Sem%206/ML%20Models/KNN%20Assignment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    KNN Assignment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Sem%206/ML%20Models/LR%20Assignment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Question 2: Multiple Linear Regression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Sem%206/ML%20Models/ML%20Models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ML Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Sem%206/ML%20Models/Metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metrics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Sem%206/ML%20Models/Notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#parse-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parse Tree
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#abstract-syntax-tree-ast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Abstract Syntax Tree (AST)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#symbol-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Symbol Table
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intermediate-representation-ir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intermediate Representation (IR)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#three-address-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three Address Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context-free-grammar-cfg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context Free Grammar (CFG)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#derivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Derivation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#left-most-derivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Left most derivation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#right-most-derivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Right most derivation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sentential-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sentential Form
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sentence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sentence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Language
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ambiguous-grammar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ambiguous Grammar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FIRST
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#follow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FOLLOW
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#left-recursive-grammar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Left Recursive Grammar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conversion-of-left-recursive-to-right-recursive-grammar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conversion of Left Recursive to Right Recursive Grammar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handle
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handle-pruning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handle Pruning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Item
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Goto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lr0-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LR(0) Item
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#augmented-grammar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Augmented Grammar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lr0-automaton" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LR(0) Automaton
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lr0-parsing-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LR(0) Parsing Table
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slr-parsing-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SLR Parsing Table
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shift-reduce-conflict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shift Reduce Conflict
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viable-prefix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Viable Prefix
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Concepts</h1>
+
+<h4 id="parse-tree">Parse Tree<a class="headerlink" href="#parse-tree" title="Permanent link">&para;</a></h4>
+<ul>
+<li>A tree representation of the grammar structure of the source code</li>
+<li>Each interior node corresponds to a non terminal in the grammar</li>
+<li>Each leaf node corresponds to a terminal or ϵ in the grammar</li>
+<li>Shows every detail of the derivation, including parenthesis and grammar rules</li>
+<li>The root of the tree is labelled by the start symbol</li>
+<li>If a step in a derivation replaces A by XYZ, the parse tree has a corresponding internal node A with children labelled XYZ from left to right</li>
+<li>The leaves of the parse tree read from left to right is called the ==yield== or ==frontier== of the parse tree</li>
+</ul>
+<blockquote>
+<p>[!example]
+sum = num + 10;
+- stmt -&gt; id = expr
+- expr -&gt; expr + expr | expr * expr | id | num</p>
+<p><code>Parse Tree
+      stmt
+     /    \
+   id     expr
+        /  |  \
+      expr +  expr
+       |       |
+       id     num</code></p>
+</blockquote>
+<h4 id="abstract-syntax-tree-ast">Abstract Syntax Tree (AST)<a class="headerlink" href="#abstract-syntax-tree-ast" title="Permanent link">&para;</a></h4>
+<ul>
+<li>A simplified version of parse tree that omits unnecessary grammar details</li>
+<li>Represents the abstract syntactic structure of the program, focusing only on the essential hierarchy of operations</li>
+</ul>
+<blockquote>
+<p>[!example]
+sum = num + 10;
+- stmt -&gt; id = expr
+- expr -&gt; expr + expr | expr * expr | id | num
+<code>Abstract Syntax Tree
+      =
+    /    \
+  sum     +
+        /  \
+      num   10</code></p>
+</blockquote>
+<h4 id="symbol-table">Symbol Table<a class="headerlink" href="#symbol-table" title="Permanent link">&para;</a></h4>
+<ul>
+<li>A data structure maintained by the compiler to store information about the identifiers (variables, functions, classes etc...) in the program</li>
+<li>Information stored includes<ul>
+<li>Name of the identifier</li>
+<li>Type(int, float, ...)</li>
+<li>Scope(local, global)</li>
+<li>Memory location/address</li>
+<li>Size</li>
+</ul>
+</li>
+<li>Acts as a dictionary for the compiler during semantic analysis and code generation</li>
+</ul>
+<h4 id="intermediate-representation-ir">Intermediate Representation (IR)<a class="headerlink" href="#intermediate-representation-ir" title="Permanent link">&para;</a></h4>
+<ul>
+<li>A form of program that lies between the source code and the target machine code</li>
+<li>Designed to be easy to analyze and optimize, independent of the source and target machine.</li>
+</ul>
+<blockquote>
+<p>[!example]
+- Three Address Code
+- AST</p>
+</blockquote>
+<h4 id="three-address-code">Three Address Code<a class="headerlink" href="#three-address-code" title="Permanent link">&para;</a></h4>
+<ul>
+<li>A type of IR</li>
+<li>Each instruction has at most 3 addresses<ul>
+<li>typically two sources and one destination</li>
+</ul>
+</li>
+<li>Looks like assembly, but is machine independent</li>
+</ul>
+<blockquote>
+<p>[!example]
+3 address code for <strong>x = sum + i * 10</strong> is:
+- t1 = i * 10
+- t2 = sum + t1
+- x = t2</p>
+<p>This is machine independant</p>
+<ul>
+<li>LD R1, i</li>
+<li>MUL R1, #10</li>
+<li>LD R2, sum</li>
+<li>ADD R1, R2</li>
+<li>ST x, R1</li>
+</ul>
+<p>This is the machine code (machine dependant)</p>
+</blockquote>
+<h4 id="context-free-grammar-cfg">Context Free Grammar (CFG)<a class="headerlink" href="#context-free-grammar-cfg" title="Permanent link">&para;</a></h4>
+<ul>
+<li>G = (N, T, P, S)</li>
+<li>N: set of non terminals</li>
+<li>T: set of terminals</li>
+<li>P: set of production rules</li>
+<li>
+<p>S: start symbol</p>
+</li>
+<li>
+<p>Each production is of the form $A \to \alpha$</p>
+<ul>
+<li>A is a non terminal</li>
+<li>$\alpha$ is a string of zero or more terminals and non terminals</li>
+</ul>
+</li>
+<li>A is called the head of the production</li>
+<li>$\alpha$ is called the body of the production</li>
+</ul>
+<blockquote>
+<p>[!example]
+S -&gt; if (E) S else S | id = E
+E -&gt; E + E | id</p>
+<ul>
+<li>N = {S, E}</li>
+<li>T = {if, (, ), else, id, =, +}</li>
+<li>S = S</li>
+</ul>
+</blockquote>
+<h4 id="derivation">Derivation<a class="headerlink" href="#derivation" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Derivation of a string begins with the start symbol</li>
+<li>A step of derivation replaces a non-terminal with the body of the production for the non-terminal</li>
+<li>A string of terminals that can be derived from the start symbol form the language defined by the grammar</li>
+</ul>
+<blockquote>
+<p>[!example]
+string: id = id + id
+S -&gt; id = E
+E -&gt; E + E | id</p>
+<p>S =&gt; id = E =&gt; id = E + E =&gt; id = id + E =&gt; id = id + id
+i.e., S =&gt;* id = id + id</p>
+<p>=&gt;*: derives in zero or more steps </p>
+</blockquote>
+<ul>
+<li>There are two types of derivation:<ul>
+<li><a href="#left-most-derivation">#Left most derivation</a></li>
+<li><a href="#right-most-derivation">#Right most derivation</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="left-most-derivation">Left most derivation<a class="headerlink" href="#left-most-derivation" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Always expand the left most non-terminal first<blockquote>
+<p>[!example]
+Doing a left most derivation:
+- stmt =&gt; if (expr) stmt; else stmt;
+- =&gt; if (expr relop expr) stmt; else stmt;
+- =&gt; if (id relop expr) stmt; else stmt;
+- =&gt; if (id relop id) stmt; else stmt;
+- =&gt; if (id relop id) id = id; else stmt;
+- =&gt; if (id relop id) id = id; else id = id;</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="right-most-derivation">Right most derivation<a class="headerlink" href="#right-most-derivation" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Always expand the right most non-terminal first</li>
+</ul>
+<blockquote>
+<p>[!example]
+Doing a right most derivation:
+- stmt =&gt; if (expr) stmt; else stmt;
+- =&gt; if (expr) stmt; else id = id;
+- =&gt; if (expr) id = id; else id = id;
+- =&gt; if (expr relop expr) id = id; else id = id;
+- =&gt; if (expr relop id) id = id; else id = id;
+- =&gt; if (id relop id) id = id; else id = id;</p>
+</blockquote>
+<h4 id="sentential-form">Sentential Form<a class="headerlink" href="#sentential-form" title="Permanent link">&para;</a></h4>
+<ul>
+<li>If S =&gt;* $\alpha$, then $\alpha$ is a sentential form</li>
+<li>A sentential form may contain for terminals and non-terminals and may be empty</li>
+</ul>
+<h4 id="sentence">Sentence<a class="headerlink" href="#sentence" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Sentence is a <a href="#sentential-form">#Sentential Form</a> with only terminals</li>
+</ul>
+<h4 id="language">Language<a class="headerlink" href="#language" title="Permanent link">&para;</a></h4>
+<ul>
+<li>L(G), the language generated by the grammar G is the set of <a href="#sentence">sentences</a> derivable from the start symbol of G</li>
+<li>A string of terminals $w \in L(G)$ iff S =&gt;* w</li>
+</ul>
+<h4 id="ambiguous-grammar">Ambiguous Grammar<a class="headerlink" href="#ambiguous-grammar" title="Permanent link">&para;</a></h4>
+<ul>
+<li>A grammar that produces more than one parse tree for the same sentence is called <strong><em>ambiguous grammar</em></strong></li>
+</ul>
+<blockquote>
+<p>[!example]
+E -&gt; E + E | E * E | id
+string: id + id * id</p>
+<p>```
+      E                              E
+    / | \                          / | \
+   E  +  E                        E  *  E
+   |   / | \                    / | \   |
+  id  E  *  E                  E  +  E  id
+     |      |                  |     |
+     id    id                 id    id</p>
+<p>```</p>
+</blockquote>
+<h4 id="notations">Notations<a class="headerlink" href="#notations" title="Permanent link">&para;</a></h4>
+<ul>
+<li>u, v, w, ... -&gt; string of terminals</li>
+<li>$\alpha, \beta, \gamma$ -&gt; strings of non-terminals and terminals</li>
+</ul>
+<h4 id="first">FIRST<a class="headerlink" href="#first" title="Permanent link">&para;</a></h4>
+<ul>
+<li>If α is a string of grammar symbols, FIRST(α) is the set of terminal symbols that can begin strings derivable from α</li>
+<li>i.e., it contains set of all terminals with which the string derivable from α can begin</li>
+</ul>
+<blockquote>
+<p>[!example]
+- FIRST(ab) = {a}
+- FIRST(b) = {b}</p>
+<p>[!important] 
+1. If a is a terminal, then FIRST(a) = {a}
+2. FIRST(ε) = ε
+3. If a is a non-terminal A:
+  - For each production A -&gt; $X_1X_2...X_n$:
+      - Add FIRST($X_1$) to FIRST(A)
+      - If FIRST($X_1$) contains ε, then also add FIRST($X_2$), and so on.
+      - If all $X_i$ can derive ε, then add ε to FIRST(A)</p>
+<p>[!example] 
+S -&gt; AB
+A -&gt; aA | ε
+B -&gt; bB | ε</p>
+<p>FIRST(AB) = {a, b, ε}
+FIRST(aA) = {a, ε}
+FIRST(bB) = {b, ε}
+FIRST(B) = {b, ε}
+FIRST(A) = {a, ε}
+FIRST(S) = {a, b, ε}</p>
+<p>[!example] 
+S -&gt; (AB)
+A -&gt; b | ε
+B -&gt; c | ε</p>
+<p>FIRST((AB)) = {(}
+FIRST(A) = {b, ε}
+FIRST(B) = {c, ε}
+FIRST(S) = {(}</p>
+<p>[!example] 
+S -&gt; AB
+A -&gt; b | ε
+B -&gt; c | ε</p>
+<p>FIRST(AB) = {b, c, ε}
+FIRST(A) = {b, ε}
+FIRST(B) = {c, ε}
+FIRST(S) = {b, c, ε}</p>
+</blockquote>
+<h4 id="follow">FOLLOW<a class="headerlink" href="#follow" title="Permanent link">&para;</a></h4>
+<ul>
+<li>When, there is a ε production in the grammar, FIRST is not enough to populate the parsing table. </li>
+<li>FOLLOW(A) of a non-terminal A is the set of terminals that can appear immediately to the right of A in some valid derivation from the start symbol</li>
+</ul>
+<blockquote>
+<p>[!important] 
+1. Place $ in FOLLOW(S) (where S is the start symbol)
+2. For each production A -&gt; aAβ:
+  - Add FIRST(β) - {ε} to FOLLOW(B)
+3. For each production A -&gt; αB or A -&gt; αBβ where ε ∈ FIRST(β)
+  - Add FOLLOW(A) to FOLLOW(B)</p>
+<p>[!example] 
+S -&gt; (A)
+A -&gt; Cd
+C -&gt; ab | ε </p>
+<p>FOLLOW(A) = {)}
+FOLLOW(C) = {d}
+FOLLOW(S) = {$}</p>
+<p>[!example] 
+S -&gt; AB
+A -&gt; aA | ε
+B -&gt; bB | ε</p>
+<p>FOLLOW(S) = {\$}
+FOLLOW(A) = {b, \$}
+FOLLOW(B) = {\$}</p>
+<p>[!example] 
+S -&gt; (AB)
+A -&gt; b | ε
+B -&gt; c | ε</p>
+<p>FOLLOW(S) = {\$}
+FOLLOW(A) = {c, )}
+FOLLOW(B) = {)}</p>
+<p>[!example] 
+S -&gt; AB
+A -&gt; b | ε
+B -&gt; c | ε</p>
+<p>FOLLOW(S) = {\$}
+FOLLOW(A) = {c, \$}
+FOLLOW(B) = {\$}</p>
+<p>[!example] 
+S -&gt; (A)
+A -&gt; BC
+B -&gt; b | ε
+C -&gt; c | ε</p>
+<p>FOLLOW(S) = {\$}
+FOLLOW(A) = {)}
+FOLLOW(B) = {c, )}
+FOLLOW(C) = {)}</p>
+<p>[!example] 
+A -&gt; BC
+B -&gt; b | ε
+C -&gt; c | ε</p>
+<p>FOLLOW(A) = {\$}
+FOLLOW(B) = {c, $}
+FOLLOW(C) = {\$}</p>
+</blockquote>
+<h4 id="left-recursive-grammar">Left Recursive Grammar<a class="headerlink" href="#left-recursive-grammar" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Grammar which contains productions involving recursion in the starting</li>
+</ul>
+<blockquote>
+<p>[!example] 
+A -&gt; Aa | b</p>
+</blockquote>
+<ul>
+<li>left recursive grammar results in multiple entries in parsing table, thus is not LL(1).</li>
+<li>But left recursive grammars can be converted to right recursive grammars</li>
+</ul>
+<h4 id="conversion-of-left-recursive-to-right-recursive-grammar">Conversion of Left Recursive to Right Recursive Grammar<a class="headerlink" href="#conversion-of-left-recursive-to-right-recursive-grammar" title="Permanent link">&para;</a></h4>
+<p>Any left recursive grammar of the form A -&gt; Aα | β can be converted to equivalent right recursive grammar as:
+- A -&gt; βA'
+- A' -&gt; αA' | ε</p>
+<blockquote>
+<p>[!example] 
+A -&gt; Aa | b
+- A -&gt; bA'
+- A' -&gt; aA' | ε</p>
+<p>[!example] 
+E -&gt; E + T | T
+T -&gt; id</p>
+<ul>
+<li>E -&gt; TE'</li>
+<li>E' -&gt; +TE' | ε</li>
+<li>T -&gt; id</li>
+</ul>
+<p>[!example] 
+E -&gt; E + T | T
+T -&gt; T * F | F
+F -&gt; (E) | id
+- E -&gt; TE'
+- E' -&gt; +TE' | ε
+- E -&gt; FT'
+- T' -&gt; *FT' | ε
+- F -&gt; (E) | id</p>
+</blockquote>
+<h4 id="reduction">Reduction<a class="headerlink" href="#reduction" title="Permanent link">&para;</a></h4>
+<ul>
+<li>replaces a substring matching the body of a production by its head (the reverse of a step in a derivation)</li>
+<li>Given A -&gt; α, substring α in a right-sentential form is reduced to A to get the previous right-sentential form</li>
+<li>The substring chosen for reduction is known as the <a href="#handle">#Handle</a></li>
+</ul>
+<h4 id="handle">Handle<a class="headerlink" href="#handle" title="Permanent link">&para;</a></h4>
+<ul>
+<li>A handle of a right-sentential form γ is a production A -&gt; β and a position in γ where β may be found, such that replacing β at the position by A, produces the previous right-sentential form<ul>
+<li>For convenience, often the body β is referred to as the handle instead of A -&gt; β.</li>
+</ul>
+</li>
+</ul>
+<h4 id="handle-pruning">Handle Pruning<a class="headerlink" href="#handle-pruning" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Doing a right most derivation in reverse, starting with the input string of terminals w to be parsed.</li>
+<li>If w is a sentence, w = $\gamma_n$, then n-th right-sentential form in a derivation of w<ul>
+<li>S = $\gamma_0$ =&gt; $\gamma_1$ =&gt; $\gamma_2$ =&gt; ... $\gamma_{n - 1}$ =&gt; $\gamma_n$ = w</li>
+</ul>
+</li>
+<li>Handle pruning starts with reducing a handle $A_n \to \beta_n$ in $\gamma_n$ to obtain the previous right-sentential form $\gamma_{n - 1}$ </li>
+<li>Reduction steps are repeated with $\gamma_{n - 1}$ and with the sentential forms resulting from successive steps, till the sentential form $\gamma_0$ = S is obtained or till the parser detects an error</li>
+</ul>
+<h4 id="item">Item<a class="headerlink" href="#item" title="Permanent link">&para;</a></h4>
+<ul>
+<li>An item, is a production with a dot at some position indicating how much of the production is already seen by the parser</li>
+<li>e.g., S -&gt; L.=R<ul>
+<li>indicates that, the parser has seen a string derivable from L and is expecting to see a string derivable from =R</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Parser State</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S -&gt; .L=R</td>
+<td>Expecting to see a string derivable from L=R</td>
+</tr>
+<tr>
+<td>S -&gt; L.=R</td>
+<td>A string derivable from L is read from the input. <br>Expecting to see a string derivable from =R</td>
+</tr>
+<tr>
+<td>S -&gt; L=.R</td>
+<td>A string derivable from L= is read from the input.<br>Expecting to see a string derivable from R</td>
+</tr>
+<tr>
+<td>S -&gt; L=R.</td>
+<td>A string derivable from L=R is read from the input.<br>Parser can reduce by S -&gt; L = R</td>
+</tr>
+<tr>
+<td>#### State of parser</td>
+<td></td>
+</tr>
+<tr>
+<td>A parser state is represented by a set of <a href="#lr0-item">LR(0)</a> items</td>
+<td></td>
+</tr>
+<tr>
+<td>- A -&gt; α.β in a state indicates that the parser has already seen a string derivable from α, and is expecting to see a string derivable from β</td>
+<td></td>
+</tr>
+<tr>
+<td>- A -&gt; αβ. in a state indicates that the parser has already seen the entire right hand side of the production(may lead to a reduction by A -&gt; αβ)</td>
+<td></td>
+</tr>
+<tr>
+<td>#### Closure of set of items</td>
+<td></td>
+</tr>
+<tr>
+<td>For a set of items I, Closure(I) is computed as follows:</td>
+<td></td>
+</tr>
+<tr>
+<td>- Add every item in I to Closure(I)</td>
+<td></td>
+</tr>
+<tr>
+<td>- If A -&gt; α.Bβ is in Closure(I) then for each production B -&gt; γ, add B -&gt; .γ to Closure(I)</td>
+<td></td>
+</tr>
+<tr>
+<td>- Repeat the above step until no more new items can be added to Closure(I)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[!example] 
+S' -&gt; S
+S -&gt; L = R
+L -&gt; id
+R -&gt; num</p>
+<p>Closure({S -&gt; .L=R}) = {S -&gt; .L=R, L -&gt; .id}
+Closure({S -&gt; L=.R}) = {S -&gt; L=.R, R -&gt; .num}
+Closure({S' -&gt; .S}) = {S' -&gt; .S, S -&gt; .L = R, L -&gt; .id}</p>
+<p>[!example] 
+E' -&gt; E
+E -&gt; E + T | T
+T -&gt; id</p>
+<p>Closure({E -&gt; .E + T}) = {E -&gt; .E + T, E -&gt; .T, T -&gt; .id}</p>
+</blockquote>
+<h4 id="goto">Goto<a class="headerlink" href="#goto" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Goto(I, X) where I is a set of items and X is a grammar symbol is defined to be the closure of the set of all items A -&gt; αX.β such that A -&gt; α.Xβ is in I</li>
+</ul>
+<blockquote>
+<p>[!example] 
+S' -&gt; S
+S -&gt; L = R
+L -&gt; id
+R -&gt; num</p>
+<p>Goto({S -&gt; L.=R}, =) = {S -&gt; L=.R, R -&gt; .num}</p>
+<p>[!example] 
+E' -&gt; E
+E -&gt; E + T | T
+T -&gt; id</p>
+<p>Goto({E -&gt; E.+T}, +) = {E -&gt; E+.T, T -&gt; .id}
+Goto({E -&gt; E+.T, T -&gt; .id}, T) = {E -&gt; E + T.}</p>
+</blockquote>
+<h4 id="lr0-item">LR(0) Item<a class="headerlink" href="#lr0-item" title="Permanent link">&para;</a></h4>
+<ul>
+<li>An item of the form A -&gt; α.β is known as LR(0) item.</li>
+<li>A state of the parser is defined by a set of LR(0) items.</li>
+</ul>
+<h4 id="augmented-grammar">Augmented Grammar<a class="headerlink" href="#augmented-grammar" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Adding a new state S' and a production S' -&gt; S results in an augmented grammar</li>
+<li>The new production is added to indicate acceptance<ul>
+<li>Parser accepts when it is about to reduce by S' -&gt; S</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>[!example] 
+S -&gt; L = R
+L -&gt; id
+R -&gt; num</p>
+<p>the corresponding augmented grammar is:</p>
+<ul>
+<li>S' -&gt; S</li>
+<li>S -&gt; L = R</li>
+<li>L -&gt; id</li>
+<li>R -&gt; num</li>
+</ul>
+</blockquote>
+<h4 id="lr0-automaton">LR(0) Automaton<a class="headerlink" href="#lr0-automaton" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Each state represented by a set of LR(0) items</li>
+<li>Initial State is Closure({S' -&gt; .S})</li>
+<li>State Transitions given by the <a href="#goto">GOTO()</a> functions</li>
+</ul>
+<blockquote>
+<p>[!note]
+The collection of sets of LR(0) items is known as the Canonical LR(0) collection </p>
+<p>[!example] 
+S' -&gt; S
+S -&gt; L = R
+L -&gt; id
+R -&gt; num</p>
+</blockquote>
+<p><img alt="LR(0) Automaton Example 1.png" src="../Analysis/Syntax%20Analysis/LR%280%29%20Automaton%20Example%201.png" /></p>
+<h4 id="lr0-parsing-table">LR(0) Parsing Table<a class="headerlink" href="#lr0-parsing-table" title="Permanent link">&para;</a></h4>
+<ul>
+<li>The parsing table has two parts -&gt; ACTION and GOTO</li>
+<li>For each state i, represented by set $I_i$:<ul>
+<li>If [A -&gt; α.aβ] ∈ $I_i$, and Goto($I_i$, a) = $I_j$, ACTION[i, a] = $s_j$ (shift and go to state j)</li>
+<li>If [A -&gt; α.] ∈ $I_i$, and A != S', ACTION[i, a] = $r_j$ (reduce using production numbered j, assuming A -&gt; α production is numbered as j) for each terminal a. Also set ACTION[i, $] to $r_j$</li>
+<li>If [S' -&gt; S.] ∈ $I_i$, set ACTION[i, $] to accept</li>
+<li>If Goto($I_i$, A) = $I_j$, set GOTO(i, A) = j</li>
+<li>All undefined entries are marked as error (blank)</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>[!question] 
+0: S' -&gt; S
+1: S -&gt; L = R
+2: L -&gt; id
+3: R -&gt; num</p>
+</blockquote>
+<p><img alt="LR(0) Automaton Example 1.png" src="../Analysis/Syntax%20Analysis/LR%280%29%20Automaton%20Example%201.png" /></p>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>id</th>
+<th>=</th>
+<th>num</th>
+<th>$</th>
+<th>L</th>
+<th>R</th>
+<th>S</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>s3</td>
+<td></td>
+<td></td>
+<td></td>
+<td>2</td>
+<td></td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td>acc</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+<td>s4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>r2</td>
+<td>r2</td>
+<td>r2</td>
+<td>r2</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td></td>
+<td></td>
+<td>s5</td>
+<td></td>
+<td></td>
+<td>6</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>r3</td>
+<td>r3</td>
+<td>r3</td>
+<td>r3</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>r1</td>
+<td>r1</td>
+<td>r1</td>
+<td>r1</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[!note] 
+$s_i$ -&gt; shit and goto state i
+$r_i$ -&gt; reduce using production numbered i
+blank entries -&gt; error</p>
+</blockquote>
+<h4 id="slr-parsing-table">SLR Parsing Table<a class="headerlink" href="#slr-parsing-table" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Compute C = $I_0, I_1, I_2, ...I_n$, the canonical collection of sets of LR(0) items.</li>
+<li>For each set $I_i$, the parser has a corresponding state i</li>
+<li>The parsing table has two parts - ACTION and GOTO. The entries for state i are as follows:<ul>
+<li>If [A -&gt; α.aβ] ∈ $I_i$, and Goto($I_i$, a) = $I_j$, ACTION[i, a] = $s_j$ (shift and go to state j)</li>
+<li>If [A -&gt; α.] ∈ $I_i$, and A != S', ACTION[i, a] = $r_j$ (reduce using production numbered j, assuming A -&gt; α production is numbered as j) ==for every terminal a ∈ FOLLOW(A)==</li>
+<li>If [S' -&gt; S.] ∈ $I_i$, set ACTION[i, $] to accept</li>
+<li>If Goto($I_i$, A) = $I_j$, set GOTO(i, A) = j</li>
+<li>All undefined entries are marked as error (blank)</li>
+</ul>
+</li>
+</ul>
+<h4 id="shift-reduce-conflict">Shift Reduce Conflict<a class="headerlink" href="#shift-reduce-conflict" title="Permanent link">&para;</a></h4>
+<ul>
+<li>When there is a shift and reduce action in the same state it is called a shift reduce conflict</li>
+<li>Such grammars are not LR(0)</li>
+</ul>
+<blockquote>
+<p>[!example] 
+0: S' -&gt; S
+1: S -&gt; id = R
+2: R -&gt; id + id
+3: R -&gt; id</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>id</th>
+<th>=</th>
+<th>+</th>
+<th>$</th>
+<th>S</th>
+<th>R</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>s1</td>
+<td></td>
+<td></td>
+<td></td>
+<td>6</td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td></td>
+<td>s2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>s3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>7</td>
+</tr>
+<tr>
+<td>3</td>
+<td>r3</td>
+<td>r3</td>
+<td>r3/s4</td>
+<td>r3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>s5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>r2</td>
+<td>r2</td>
+<td>r2</td>
+<td>r2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td></td>
+<td></td>
+<td></td>
+<td>acc</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>r1</td>
+<td>r1</td>
+<td>r1</td>
+<td>r1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>- As we can see, there is a conflict for T[s, +]. It can either shift or reduce. This is a shift reduce conflict</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[!example] 
+0: E' -&gt; E
+1: E -&gt; T + E
+2: E -&gt; T
+3: T -&gt; id</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>id</th>
+<th>+</th>
+<th>$</th>
+<th>E</th>
+<th>T</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>s1</td>
+<td></td>
+<td></td>
+<td>5</td>
+<td>2</td>
+</tr>
+<tr>
+<td>1</td>
+<td>r3</td>
+<td>r3</td>
+<td>r3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>r2</td>
+<td>r2/s3</td>
+<td>r2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>s1</td>
+<td></td>
+<td></td>
+<td>4</td>
+<td>2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>r1</td>
+<td>r1</td>
+<td>r1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td></td>
+<td></td>
+<td>acc</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>- Here also, there is a shift-reduce conflict in T[s, +]</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>#### Reduce Reduce Conflict</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>- When there is two reduce and reduce actions on different productions in the same state it is called a shift reduce conflict</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[!example] 
+0: S' -&gt; S
+1: S -&gt; L = L
+2: S -&gt; id
+3: L -&gt; id</p>
+<p>FOLLOW(S') = {\$}
+FOLLOW(S) = {\$}
+FOLLOW(L) = {=, \$}</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>id</th>
+<th>=</th>
+<th>$</th>
+<th>S</th>
+<th>L</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>s3</td>
+<td></td>
+<td></td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>1</td>
+<td></td>
+<td></td>
+<td>accept</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+<td>s4</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td></td>
+<td>r3</td>
+<td>r2/r3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>s6</td>
+<td></td>
+<td></td>
+<td></td>
+<td>5</td>
+</tr>
+<tr>
+<td>5</td>
+<td></td>
+<td></td>
+<td>r1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td></td>
+<td>r3</td>
+<td>r3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>- Since the $ is in both FOLLOW(S) and FOLLOW(L), there is a reduce reduce conflict in T[3, \$]</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>- So, this is not SLR</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>#### LR(1) Items</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>- An LR(1) item has 2 components</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>- first component is similar to LR(0) item</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>- the second component is the look ahead of the item</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>- Items are of the form [A -&gt; α.β, a]</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>- a is a look ahead symbol (a is either terminal or the right end marker $)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>- [A -&gt; α., a] in a state indicates that the symbol a can follow handle α for which there is a possible reduction to A</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>- reduction by A -&gt; α only if the look ahead is a</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>- The first component is called the core of the state and the second component is the look ahead</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>#### Merging States</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>- We merge the states with same core but different look ahead by merging the look aheads</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[!example] 
+- {[A -&gt; a.A, \$], [A -&gt; .aA, \$], [A -&gt; .b, \$]}
+- {[A -&gt; a.A, a|b], [A -&gt; .Aa, a|b], [A -&gt; .b, a|b]}</p>
+<p>When we merge the two states into a single LALR state
+- {[A -&gt; a.A, a|b|\$], [A -&gt; .aA, a|b|\$], [A -&gt; .b, a|b|\$]}</p>
+</blockquote>
+<h4 id="viable-prefix">Viable Prefix<a class="headerlink" href="#viable-prefix" title="Permanent link">&para;</a></h4>
+<ul>
+<li>A prefix of a right sentential form that can appear on the stack of a shift reduce parser.</li>
+<li>The prefix does not extend part the right end of the right most handle</li>
+<li>Not all prefixes of the right sentential forms can be viable prefixes<ul>
+<li>when a handle appears in the stack, the parser reduces without shifting any more symbols</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
