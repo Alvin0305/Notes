@@ -1,3 +1,14 @@
+# Sem 5
+
+- [[Compiler Design]]
+- [[Computer Networks]]
+- [[DAA]]
+- [[French]]
+
+# Sem 6
+- [Compiler Lab](Overview)
+- [[ML Models]]
+
 # Welcome to MkDocs
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
