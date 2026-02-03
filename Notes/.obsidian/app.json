@@ -11,5 +11,6 @@
   "readableLineLength": false,
   "propertiesInDocument": "visible",
   "showLineNumber": true,
-  "showUnsupportedFiles": false
+  "showUnsupportedFiles": false,
+  "promptDelete": false
 }

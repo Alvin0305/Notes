@@ -12,7 +12,6 @@ An Ethernet frame consists of:
 | **CRC / FCS**               | 4 bytes       | Error detection                                       |
 
 📌 Minimum payload = 46 bytes → If smaller, **padding** is added to meet 64-byte minimum frame.
-
 #### Ethernet Exam Quick Notes
 
 - **Frame format has MAC addresses (not IP).**    
@@ -272,14 +271,32 @@ So the structure on the network looks like:
 
 # 🧠 Ultimate Memory Table (for last-minute exam recall)
 
-|Header|Layer|Address type|Main Purpose|
-|---|---|---|---|
-|802.3 / Ethernet|Data Link|MAC (48-bit)|Local delivery (LAN)|
-|IPv4|Network|IP (32-bit)|Routing between networks|
-|IPv6|Network|IP (128-bit)|Routing — scalable & high performance|
-|TCP|Transport|Port numbers|Reliable end-to-end communication|
+| Header           | Layer     | Address type | Main Purpose                          |
+| ---------------- | --------- | ------------ | ------------------------------------- |
+| 802.3 / Ethernet | Data Link | MAC (48-bit) | Local delivery (LAN)                  |
+| IPv4             | Network   | IP (32-bit)  | Routing between networks              |
+| IPv6             | Network   | IP (128-bit) | Routing — scalable & high performance |
+| TCP              | Transport | Port numbers | Reliable end-to-end communication     |
 
 ---
+
+# 🚀 **5. ARP HEADER (Address Resolution Protocol)**
+(Used only on LAN to map IP → MAC)
+### **ARP fields**
+
+| Field                       | Size | Meaning            |
+| --------------------------- | ---- | ------------------ |
+| **Hardware type**           | 2    | Ethernet = 1       |
+| **Protocol type**           | 2    | IPv4 = 0x0800      |
+| **Hardware Address Length** | 1    | MAC length = 6     |
+| **Protocol Address Length** | 1    | IPv4 length = 4    |
+| **Opcode**                  | 2    | 1=Request, 2=Reply |
+| **Sender MAC address**      | 6    |                    |
+| **Sender IP address**       | 4    |                    |
+| **Target MAC address**      | 6    |                    |
+| **Target IP address**       | 4    |                    |
+
+Total: **28 bytes**
 
 ## 🎯 Perfect exam paragraph to write if asked:
 

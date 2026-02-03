@@ -4,29 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "e29bee2ae2e7377d",
+        "id": "dd64333f99dbcd92",
         "type": "tabs",
         "children": [
           {
-            "id": "603aaaa49e592d91",
-            "type": "leaf",
-            "state": {
-              "type": "bases",
-              "state": {
-                "file": "Sem 5/Compiler Design/Index.base",
-                "viewName": "View"
-              },
-              "icon": "lucide-table",
-              "title": "Index"
-            }
-          },
-          {
-            "id": "01b0fa809245ea42",
+            "id": "ed2d04ffd3f592cb",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Sem 5/Compiler Design/Synthesis/Code Improving Transformations/Simple Transformations.md",
+                "file": "Sem 6/ML Models/Metrics.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -41,35 +28,10 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Simple Transformations"
-            }
-          },
-          {
-            "id": "b0c1b582a33522a3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Sem 5/Compiler Design/Synthesis/Activation Record.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "Activation Record"
+              "title": "Metrics"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -101,7 +63,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "cdma",
+                "query": "tag:#Image-From-google",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -126,8 +88,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 321.5,
-    "collapsed": true
+    "width": 321.5
   },
   "right": {
     "id": "a6b5d8ed28d60df9",
@@ -219,55 +180,55 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "b0c1b582a33522a3",
+  "active": "ed2d04ffd3f592cb",
   "lastOpenFiles": [
-    "Sem 5/Compiler Design/Topics.md",
-    "Sem 5/Compiler Design/Synthesis/Activation Record.md",
-    "Sem 5/Compiler Design/Synthesis/Code Improving Transformations/Variables.md",
-    "Sem 5/Compiler Design/Synthesis/Code Improving Transformations/Simple Transformations.md",
-    "Sem 5/Compiler Design/Index.base",
-    "Sem 5/Compiler Design/Synthesis/Intermediate Representations/DAG.md",
-    "Sem 5/Compiler Design/Synthesis/Code Improving Transformations/Code Improving Transformations.md",
-    "Sem 5/Compiler Design/Synthesis/Code Improving Transformations/Constant Folding.md",
-    "Sem 5/Compiler Design/Synthesis/Code Improving Transformations/Constant Propagation.md",
-    "Sem 5/Compiler Design/Synthesis/Code Improving Transformations/Dead Code Elimination.md",
-    "Sem 5/Compiler Design/Synthesis/Code Improving Transformations/Copy Propagation.md",
-    "Sem 5/Compiler Design/Synthesis/Code Improving Transformations/Common Sub-Expression Elimination.md",
-    "Sem 5/Compiler Design/Synthesis/Intermediate Representations/TAC.md",
-    "Sem 5/Compiler Design/Synthesis/Code Improving Transformations",
-    "Sem 5/Compiler Design/Synthesis/Intermediate Representations/Relative Addressing.md",
-    "Sem 5/Compiler Design/Synthesis/Synthesis.md",
-    "Sem 5/Compiler Design/Synthesis/Intermediate Representations/Intermediate Representations.md",
+    "Sem 6/ML Models/LR Assignment.md",
+    "Sem 6/ML Models/Metrics.md",
+    "Sem 6/Compiler Lab/Overview.md",
+    "Sem 6/Personal Investment Advisor/Overview.md",
+    "Sem 6/Personal Investment Advisor/Features.md",
+    "Sem 6/Personal Investment Advisor/Design.md",
+    "Projects/FTPServer/Protocol.md",
+    "Projects/FTPServer/Layers.md",
+    "Sem 6/ML Models/Notes.md",
     "Tutorial_3__Predictive_Parsing-First and Follow.pdf",
-    "Lecture__22__Semantic_Analysis___Type_Expressions__Type_checking__Type_Conversions.pdf",
-    "Lecture_21__Semantic_Analysis___Symbol_Table.pdf",
-    "Lecture_20__Syntax_Directed_Translation__Introduction.pdf",
-    "Lecture_19__Bottom_up_Parsing_8_Miscellaneous_topics.pdf",
-    "Lecture_18__Bottom_Up_Parsing_7__LALR_Parsing.pdf",
-    "Lecture_17__Bottom_up_Parsing_6__LR_1__Parsing.pdf",
-    "Lecture_16__Bottom_up_Parsing_5___SLR_Parsing.pdf",
-    "2025-11-24.md",
-    "Sem 5/Compiler Design/Synthesis/Intermediate Representations/AST.md",
-    "Sem 5/Compiler Design/Synthesis/Intermediate Representations/SSA.md",
-    "Untitled 1.md",
-    "Sem 5/Compiler Design/Images/DAG__2.png",
-    "Sem 5/Compiler Design/Images/DAG__1.png",
-    "Sem 5/Computer Networks/General/Headers.md",
-    "Sem 5/Computer Networks/General/Network Devices.md",
+    "Pasted image 20260121201429.png",
+    "Pasted image 20260121202435.png",
+    "Pasted image 20260121202109.png",
+    "Stock Prediction/Team Split.md",
+    "Sem 6/ML Models/KNN Assignment.md",
+    "Muscle_attachments_of_the_clavicle.jpg",
+    "Illustration_of_clavicle.jpg",
+    "dog 32.jpg",
+    "clavicle.png",
+    "DESKTOP WALLPAPER.jpg",
+    "Anatomy_of_the_clavicle_2.jpg",
+    "Keerthana/Upper Limb.md",
+    "Keerthana/Clavicle.md",
+    "Keerthana/Humerus.md",
+    "Keerthana/Lower Limb.md",
+    "Keerthana/Skeleton of hand.md",
+    "Keerthana/Radius Ulna.md",
+    "Keerthana/Scapula.md",
+    "4.md",
+    "pexels-shotbyrain-3497624.jpg",
+    "Keerthana",
+    "Sem 6/ML Models",
+    "Sem 5/Computer Networks/General/Equations/Maximum Data Rate.md",
     "Sem 5/Computer Networks/End Sem Topics.md",
-    "Sem 5/Computer Networks/General/Networking Concepts.md",
-    "Sem 5/Computer Networks/General/Network Topologies.md",
-    "Sem 5/Computer Networks/General/Network Models/OSI Model.md",
-    "Sem 5/Computer Networks/General/Equations/Performance Metrics.md",
-    "Sem 5/Computer Networks/Images/Classful Addressing.png",
-    "Sem 5/Compiler Design/Images/AST Parse Tree Difference.png",
+    "Projects/FTPServer",
+    "Projects",
+    "Stock Prediction/Project Structure.md",
+    "Sem 6/Compiler Lab",
+    "Stock Prediction/ML Layer.md",
+    "Stock Prediction/Project Structure Explanation.md",
+    "Stock Prediction/Features.md",
+    "Sem 5/Computer Networks/General/Headers.md",
+    "Stock Prediction",
+    "Sem 5/Compiler Design/Index.base",
+    "Sem 5/Compiler Design/Synthesis/Code Improving Transformations",
+    "Lecture__22__Semantic_Analysis___Type_Expressions__Type_checking__Type_Conversions.pdf",
     "Sem 5/Compiler Design/Untitled.canvas",
-    "Sem 5/Design and Analysis of Algorithms/Images/Set Cover - Vertex Cover.png",
-    "Sem 5/Design and Analysis of Algorithms/Images/Satifiability.png",
-    "Sem 5/Design and Analysis of Algorithms/Images/SAT to Clique.png",
-    "Sem 5/Design and Analysis of Algorithms/Images/Problem Classes.png",
-    "Sem 5/Design and Analysis of Algorithms/Images/3 Coloring - 3 SAT.png",
-    "Sem 5/Design and Analysis of Algorithms/Images/3 Colorability.png",
     "Sem 5/Design and Analysis of Algorithms/Sorting.canvas",
     "Untitled.canvas",
     "Sem 5/Compiler Design/Analysis/Lexical Analysis/Identifier.canvas",

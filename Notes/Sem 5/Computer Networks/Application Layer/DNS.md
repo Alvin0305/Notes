@@ -262,5 +262,3 @@ Reduce attacker’s chances to trigger many queries
 Only internal users can ask the resolver
 ##### ✔ Split-horizon DNS
 Different DNS for inside/outside
-
-
