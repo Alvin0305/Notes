@@ -5583,16 +5583,16 @@
 
 <blockquote>
 <p>[!important] 
-OUT(ENTRY) = $\phi$
-OUT(B) = $U, \forall B \ne ENTRY$
-OUT(B) = $gen_B \cup(IN(B) - kill_B)$
-IN(B) = $\cap_{P}{OUT(P)}, \text{P are the predecessors of B}$</p>
+OUT(ENTRY) = <span class="arithmatex">\(\phi\)</span>
+OUT(B) = <span class="arithmatex">\(U, \forall B \ne ENTRY\)</span>
+OUT(B) = <span class="arithmatex">\(gen_B \cup(IN(B) - kill_B)\)</span>
+IN(B) = <span class="arithmatex">\(\cap_{P}\{OUT(P)\}, \text{P are the predecessors of B}\)</span></p>
 </blockquote>
 <h4 id="reaching-definitions">Reaching Definitions<a class="headerlink" href="#reaching-definitions" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p>[!info]
-OUT(B) = $gen_B \cup(IN(B) - kill_B)$
-IN(B) = $\cup_{P}{OUT(P)}, \text{P are the predecessors of B}$</p>
+OUT(B) = <span class="arithmatex">\(gen_B \cup(IN(B) - kill_B)\)</span>
+IN(B) = <span class="arithmatex">\(\cup_{P}\{OUT(P)\}, \text{P are the predecessors of B}\)</span></p>
 </blockquote>
 
 
@@ -5647,6 +5647,8 @@ IN(B) = $\cup_{P}{OUT(P)}, \text{P are the predecessors of B}$</p>
     
     
       <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -5639,7 +5639,7 @@
 
 <ul>
 <li>Construct parse tree bottom-up, starting from leaves</li>
-<li>Parent node A added to a set of nodes matching the body $\alpha$ of production $A \to \alpha$</li>
+<li>Parent node A added to a set of nodes matching the body <span class="arithmatex">\(\alpha\)</span> of production <span class="arithmatex">\(A \to \alpha\)</span></li>
 <li>Equivalent to do a right most derivation in reverse</li>
 <li>Top down parsers can only parse LL(1) (if there are k look-aheads, it can parse LL(k)) grammars. </li>
 <li>Top down parsers are less powerful but are simple</li>
@@ -6182,14 +6182,14 @@ repeat
 until no new sets are added to C</code></p>
 </blockquote>
 <ul>
-<li>Compute C = $I_0, I_1, I_2, ...I_n$, the canonical collection of sets of LR(0) items</li>
-<li>Each set $I_i$ in C, represents a parser state i</li>
-<li>The initial state of the parser is $I_0$ = Closure({S' -&gt; .S})</li>
+<li>Compute C = <span class="arithmatex">\(I_0, I_1, I_2, ...I_n\)</span>, the canonical collection of sets of LR(0) items</li>
+<li>Each set <span class="arithmatex">\(I_i\)</span> in C, represents a parser state i</li>
+<li>The initial state of the parser is <span class="arithmatex">\(I_0\)</span> = Closure({S' -&gt; .S})</li>
 <li>For each state i:<ul>
-<li>for each terminal a, if Goto($I_i$, a) = $I_j$, set parser action as shift a and move to state j</li>
-<li>for each non-terminal A, if Goto($I_i$, A) = $I_j$, set parser action as move to state j</li>
-<li>if $I_i$ has an item, A -&gt; α., A != S', set parser action as reduce α to A</li>
-<li>if $I_i$ has an item, S' -&gt; S., set parser action as accept for input symbol $</li>
+<li>for each terminal a, if Goto(<span class="arithmatex">\(I_i\)</span>, a) = <span class="arithmatex">\(I_j\)</span>, set parser action as shift a and move to state j</li>
+<li>for each non-terminal A, if Goto(<span class="arithmatex">\(I_i\)</span>, A) = <span class="arithmatex">\(I_j\)</span>, set parser action as move to state j</li>
+<li>if <span class="arithmatex">\(I_i\)</span> has an item, A -&gt; α., A != S', set parser action as reduce α to A</li>
+<li>if <span class="arithmatex">\(I_i\)</span> has an item, S' -&gt; S., set parser action as accept for input symbol $</li>
 </ul>
 </li>
 </ul>
@@ -6205,9 +6205,9 @@ until no new sets are added to C</code></p>
 1: S -&gt; id = R
 2: R -&gt; id + id
 3: R -&gt; id</p>
-<p>FOLLOW(S') = {\$}
-FOLLOW(S) = {\$}
-FOLLOW(R) = {\$}</p>
+<p>FOLLOW(S') = {$}
+FOLLOW(S) = {$}
+FOLLOW(R) = {$}</p>
 </blockquote>
 <table>
 <thead>
@@ -6320,10 +6320,10 @@ FOLLOW(R) = {\$}</p>
 1: S -&gt; L = R
 2: L -&gt; id
 3: R -&gt; num</p>
-<p>FOLLOW(S') = {\$}
-FOLLOW(S) = {\$}
+<p>FOLLOW(S') = {$}
+FOLLOW(S) = {$}
 FOLLOW(L) = {=}
-FOLLOW(R) = {\$}</p>
+FOLLOW(R) = {$}</p>
 </blockquote>
 <table>
 <thead>
@@ -6417,9 +6417,9 @@ FOLLOW(R) = {\$}</p>
 1: E -&gt; T + E
 2: E -&gt; T
 3: T -&gt; id</p>
-<p>FOLLOW(E') = {\$}
-FOLLOW(E) = {\$}
-FOLLOW(T) = {+, \$}
+<p>FOLLOW(E') = {$}
+FOLLOW(E) = {$}
+FOLLOW(T) = {+, $}
 - If we were doing LR(0),</p>
 </blockquote>
 <table>
@@ -6562,9 +6562,9 @@ FOLLOW(T) = {+, \$}
 3: L -&gt; *R
 4: L -&gt; id
 5: R -&gt; L</p>
-<p>FOLLOW(S') = {\$}
-FOLLOW(S) = {\$}
-FOLLOW(R) = {\$, =}
+<p>FOLLOW(S') = {$}
+FOLLOW(S) = {$}
+FOLLOW(R) = {$, =}
 FOLLOW(L) = {=, $}
 - If we do LR(0)</p>
 </blockquote>
@@ -6816,9 +6816,9 @@ FOLLOW(L) = {=, $}
 1: S -&gt; L = L
 2: S -&gt; id
 3: L -&gt; id</p>
-<p>FOLLOW(S') = {\$}
-FOLLOW(S) = {\$}
-FOLLOW(L) = {=, \$}</p>
+<p>FOLLOW(S') = {$}
+FOLLOW(S) = {$}
+FOLLOW(L) = {=, $}</p>
 </blockquote>
 <table>
 <thead>
@@ -6889,7 +6889,7 @@ FOLLOW(L) = {=, \$}</p>
 <td></td>
 </tr>
 <tr>
-<td>- Since the $ is in both FOLLOW(S) and FOLLOW(L), there is a reduce reduce conflict in T[3, \$]</td>
+<td>- Since the $ is in both FOLLOW(S) and FOLLOW(L), there is a reduce reduce conflict in T[3, $]</td>
 <td></td>
 <td></td>
 <td></td>
@@ -7422,6 +7422,8 @@ FOLLOW(L) = {=, \$}</p>
     
     
       <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

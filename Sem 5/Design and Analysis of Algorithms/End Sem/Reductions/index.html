@@ -5774,11 +5774,11 @@
 <li>add extra k - 3 variables: y1, y2, ...y(k-3)</li>
 <li>(l1 or l2 or l3 or ... or ln)</li>
 <li>update the clauses as<ul>
-<li>$(l_1 \lor l_2 \lor y_1)$</li>
-<li>$(\lnot y_1 \lor l_3 \lor y_2)$</li>
-<li>$(\lnot y_2 \lor l_4 \lor y_3)$</li>
+<li><span class="arithmatex">\((l_1 \lor l_2 \lor y_1)\)</span></li>
+<li><span class="arithmatex">\((\lnot y_1 \lor l_3 \lor y_2)\)</span></li>
+<li><span class="arithmatex">\((\lnot y_2 \lor l_4 \lor y_3)\)</span></li>
 <li>...</li>
-<li>$(\lnot y_{k-3} \lor l_{k-1} \lor l_k)$</li>
+<li><span class="arithmatex">\((\lnot y_{k-3} \lor l_{k-1} \lor l_k)\)</span></li>
 <li>and take the ANDs of them</li>
 </ul>
 </li>
@@ -5865,6 +5865,8 @@
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

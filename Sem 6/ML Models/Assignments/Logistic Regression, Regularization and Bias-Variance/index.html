@@ -5652,9 +5652,9 @@
 <hr />
 <h2 id="2-the-sigmoid-flattening">2. The Sigmoid "Flattening"<a class="headerlink" href="#2-the-sigmoid-flattening" title="Permanent link">&para;</a></h2>
 <p>The sigmoid function is defined as:</p>
-<p>$$\sigma(z) = \frac{1}{1 + e^{-(wx + b)}}$$</p>
+<div class="arithmatex">\[\sigma(z) = \frac{1}{1 + e^{-(wx + b)}}\]</div>
 <ul>
-<li><strong>Flattening:</strong> When L2 forces weights ($w$) to be very small, the input $z$ stays near zero. This creates a <strong>flatter, less responsive curve</strong> rather than a sharp "S" shape.    </li>
+<li><strong>Flattening:</strong> When L2 forces weights (<span class="arithmatex">\(w\)</span>) to be very small, the input <span class="arithmatex">\(z\)</span> stays near zero. This creates a <strong>flatter, less responsive curve</strong> rather than a sharp "S" shape.    </li>
 <li><strong>The Problem:</strong> A flatter curve means the model is less sensitive to changes in patient data. Because the disease is so rare, a flat curve makes it nearly impossible for the output probability to "climb" high enough to cross the 0.5 threshold to predict "Sick."</li>
 </ul>
 <hr />
@@ -5724,6 +5724,8 @@
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

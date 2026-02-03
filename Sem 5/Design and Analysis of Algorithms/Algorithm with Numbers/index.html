@@ -5730,23 +5730,23 @@
 </tr>
 <tr>
 <td>Multiplication</td>
-<td>O($n^2$)</td>
+<td>O(<span class="arithmatex">\(n^2\)</span>)</td>
 </tr>
 <tr>
 <td>Division</td>
-<td>O($n^2$)</td>
+<td>O(<span class="arithmatex">\(n^2\)</span>)</td>
 </tr>
 <tr>
 <td>Modular Exponentiation</td>
-<td>O($n^3$)</td>
+<td>O(<span class="arithmatex">\(n^3\)</span>)</td>
 </tr>
 <tr>
 <td>GCD (Euclid)</td>
-<td>O($n^3$)</td>
+<td>O(<span class="arithmatex">\(n^3\)</span>)</td>
 </tr>
 <tr>
 <td>Modular Division</td>
-<td>O($n^3$)</td>
+<td>O(<span class="arithmatex">\(n^3\)</span>)</td>
 </tr>
 <tr>
 <td>#### Addition</td>
@@ -5801,7 +5801,7 @@
 <li>Number of recursive calls:</li>
 <li><code>log(y) = log(2^n) = n</code></li>
 <li>Cost of each recursive calls: O(n) time (maximum of O(1) and O(n))</li>
-<li>So total cost = O($n^2$)</li>
+<li>So total cost = O(<span class="arithmatex">\(n^2\)</span>)</li>
 </ul>
 <blockquote>
 <p>[!example] 
@@ -5862,7 +5862,7 @@
 <li>Number of recursive calls:</li>
 <li><code>log(x) = log(2^n) = n</code></li>
 <li>Each recursive calls takes O(n) time (maximum of O(1) and O(n))</li>
-<li>Therefore, total time complexity is O($n^2$)</li>
+<li>Therefore, total time complexity is O(<span class="arithmatex">\(n^2\)</span>)</li>
 </ul>
 <blockquote>
 <p>[!example]
@@ -5917,7 +5917,7 @@
 <td></td>
 </tr>
 <tr>
-<td>- Given X, Y and N, we need to find $X^Y (mod N)$</td>
+<td>- Given X, Y and N, we need to find <span class="arithmatex">\(X^Y (mod N)\)</span></td>
 <td></td>
 </tr>
 </tbody>
@@ -5933,7 +5933,7 @@
 </code></pre>
 <blockquote>
 <p>[!example] 
-$20^{17} mod 15$</p>
+<span class="arithmatex">\(20^{17} mod 15\)</span></p>
 </blockquote>
 <table>
 <thead>
@@ -5945,23 +5945,23 @@ $20^{17} mod 15$</p>
 <tbody>
 <tr>
 <td>20, 17, 15</td>
-<td>$20 * 10^2 mod 15$ = 5</td>
+<td><span class="arithmatex">\(20 * 10^2 mod 15\)</span> = 5</td>
 </tr>
 <tr>
 <td>20, 8, 15</td>
-<td>$10^2 mod 15$ = 10</td>
+<td><span class="arithmatex">\(10^2 mod 15\)</span> = 10</td>
 </tr>
 <tr>
 <td>20, 4, 15</td>
-<td>$10^2 mod 15$ = 10</td>
+<td><span class="arithmatex">\(10^2 mod 15\)</span> = 10</td>
 </tr>
 <tr>
 <td>20, 2, 15</td>
-<td>$5^2 mod 15$ = 10</td>
+<td><span class="arithmatex">\(5^2 mod 15\)</span> = 10</td>
 </tr>
 <tr>
 <td>20, 1, 15</td>
-<td>$20 * 1^2 mod 15$ = 5</td>
+<td><span class="arithmatex">\(20 * 1^2 mod 15\)</span> = 5</td>
 </tr>
 <tr>
 <td>20, 0, 15</td>
@@ -5976,11 +5976,11 @@ $20^{17} mod 15$</p>
 <td></td>
 </tr>
 <tr>
-<td>- Each recursive call takes $O(n^2)$ time</td>
+<td>- Each recursive call takes <span class="arithmatex">\(O(n^2)\)</span> time</td>
 <td></td>
 </tr>
 <tr>
-<td>- Therefore, total time = $O(n^3)$</td>
+<td>- Therefore, total time = <span class="arithmatex">\(O(n^3)\)</span></td>
 <td></td>
 </tr>
 </tbody>
@@ -5998,7 +5998,7 @@ $20^{17} mod 15$</p>
     return gcd(b, a mod b) # O(n^2) modulus requires O(n^2) division
 </code></pre>
 <ul>
-<li>Each recursive call required $O(n^2)$ time</li>
+<li>Each recursive call required <span class="arithmatex">\(O(n^2)\)</span> time</li>
 </ul>
 <blockquote>
 <p>[!quote] Lemma
@@ -6008,7 +6008,7 @@ Either b &lt;= a / 2 or b &gt; a / 2.
 If b &lt;= a / 2, a mod b will always be less than b =&gt; a mod b &lt; b. And we have b &lt;= a / 2 =&gt; a mod b &lt; b &lt;= a / 2 =&gt; a mod b &lt; a / 2
 If b &gt; a / 2, then we can have only one b inside a and the remaining will be obviously less than a / 2 since b has already taken a / 2.</p>
 </blockquote>
-<p>From the above lemma, we can see that, at each step the number will be reduced by at least half. i.e., the length of the number reduces by at least 1 bit in every recursive call. So, after maximum 2n recursive calls, we will reach the base case. So at maximum there will be O(n) recursive calls. Therefore the total complexity is $O(n^3)$</p>
+<p>From the above lemma, we can see that, at each step the number will be reduced by at least half. i.e., the length of the number reduces by at least 1 bit in every recursive call. So, after maximum 2n recursive calls, we will reach the base case. So at maximum there will be O(n) recursive calls. Therefore the total complexity is <span class="arithmatex">\(O(n^3)\)</span></p>
 <blockquote>
 <p>[!quote] Proof
 We need to prove gcd(a, b) = gcd(b, a mod b)
@@ -6078,9 +6078,9 @@ if d divides a and b and d = ax + by for some integer x and y then d = gcd(a, b)
 </table>
 <blockquote>
 <p>[!quote] Correctness of proof
-We know, $a = \left \lfloor{\frac{a}{b}}\right \rfloor b + a mod b$
-And, $d = gcd(b, a mod b) \implies d = x'b + y'amodb$
-=&gt; $d = x'b + y'{a - \left \lfloor{\frac{a}{b}}\right \rfloor b}$</p>
+We know, <span class="arithmatex">\(a = \left \lfloor{\frac{a}{b}}\right \rfloor b + a mod b\)</span>
+And, <span class="arithmatex">\(d = gcd(b, a mod b) \implies d = x'b + y'amodb\)</span>
+=&gt; <span class="arithmatex">\(d = x'b + y'\{a - \left \lfloor{\frac{a}{b}}\right \rfloor b\}\)</span></p>
 </blockquote>
 <h4 id="modular-division">Modular Division<a class="headerlink" href="#modular-division" title="Permanent link">&para;</a></h4>
 <hr />
@@ -6089,7 +6089,7 @@ And, $d = gcd(b, a mod b) \implies d = x'b + y'amodb$
 </ul>
 <blockquote>
 <p>[!important]
-For any a mod N , a has a multiplicative inverse modulo N if and only if it is relatively prime to N . When this inverse exists, it can be found in time $O(n^3)$ by running the extended Euclid algorithm.</p>
+For any a mod N , a has a multiplicative inverse modulo N if and only if it is relatively prime to N . When this inverse exists, it can be found in time <span class="arithmatex">\(O(n^3)\)</span> by running the extended Euclid algorithm.</p>
 </blockquote>
 <ul>
 <li>i.e., when we run an extended-euclid algorithm, we find x and y such that, ax + by = gcd(a, N)</li>
@@ -6099,43 +6099,43 @@ For any a mod N , a has a multiplicative inverse modulo N if and only if it is r
 <li>=&gt; ax mod N + 0 = 1 mod N</li>
 <li>=&gt; ax mod N = 1 mod N</li>
 <li>=&gt; ax ≡ 1 mod N</li>
-<li>=&gt; $a^{-1} = x$ </li>
+<li>=&gt; <span class="arithmatex">\(a^{-1} = x\)</span> </li>
 </ul>
 <h4 id="fibonacci-numbers">Fibonacci Numbers<a class="headerlink" href="#fibonacci-numbers" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Finding Fibonacci numbers using DP takes O(n) time.</li>
 <li>But if we use matrices, we can find it in O(logN) number of matrix multiplications</li>
 </ul>
-<p>$$
+<div class="arithmatex">\[
 \begin{pmatrix}
-F_{2}\
-F_{1}\
+F_{2}\\
+F_{1}\\
 \end{pmatrix}
 = 
 \begin{pmatrix}
-1 &amp; 1\
-1 &amp; 0\
+1 &amp; 1\\
+1 &amp; 0\\
 \end{pmatrix}
 \begin{pmatrix}
-F_{1}\
-F_{0}\
+F_{1}\\
+F_{0}\\
 \end{pmatrix}
 $$
 - Using this matrix, we can find F2 and F1
 - By doing this again and again
 $$
 \begin{pmatrix}
-F_{k+1}\
-F_{k}\
+F_{k+1}\\
+F_{k}\\
 \end{pmatrix}
 = 
 \begin{pmatrix}
-1 &amp; 1\
-1 &amp; 0\
+1 &amp; 1\\
+1 &amp; 0\\
 \end{pmatrix}^{k}
 \begin{pmatrix}
-F_{1}\
-F_{0}\
+F_{1}\\
+F_{0}\\
 \end{pmatrix}
 $$
 - This does not required k matrix multiplications
@@ -6143,23 +6143,23 @@ $$
 - Therefore by this method, we can efficiently find Fibonacci numbers
 $$
 \begin{array}{l}
-z = \begin{pmatrix} 1 &amp; 1 \ 1 &amp; 0 \end{pmatrix} \[6pt]
-\text{if $k$ is even:} \
-\quad \text{return } z^2 \[6pt]
-\text{else:} \
-\quad \text{return } \begin{pmatrix} 1 &amp; 1 \ 1 &amp; 0 \end{pmatrix} \cdot z^2
+z = \begin{pmatrix} 1 &amp; 1 \\ 1 &amp; 0 \end{pmatrix} \\[6pt]
+\text{if $k$ is even:} \\
+\quad \text{return } z^2 \\[6pt]
+\text{else:} \\
+\quad \text{return } \begin{pmatrix} 1 &amp; 1 \\ 1 &amp; 0 \end{pmatrix} \cdot z^2
 \end{array}
-$$</p>
+\]</div>
 <h3 id="prime-number-theorem">Prime Number Theorem<a class="headerlink" href="#prime-number-theorem" title="Permanent link">&para;</a></h3>
 <hr />
-<p>$\lim_{n\rightarrow \infty} {\frac{\pi_n}{\frac{n}{lnn}} = 1}$
-$\text{for very large n: } \pi_n \approx \frac{n}{lnn}$ 
+<p><span class="arithmatex">\(\lim_{n\rightarrow \infty} {\frac{\pi_n}{\frac{n}{lnn}} = 1}\)</span>
+<span class="arithmatex">\(\text{for very large n: } \pi_n \approx \frac{n}{lnn}\)</span> 
 - roughly every ln(n)-th number near n is prime</p>
 <h3 id="primality-test">Primality Test<a class="headerlink" href="#primality-test" title="Permanent link">&para;</a></h3>
 <hr />
 <ul>
-<li>First approach is to divide n by 1 to $\sqrt{n}$. If none of the remainders are 0, then n is prime. (we can avoid even integers &gt; 2) </li>
-<li>But, it will take $O(\sqrt{n})$ time = $O(n^{1/2}) = O(2^N/2) = O(2^{N - 1})$ which is exponential</li>
+<li>First approach is to divide n by 1 to <span class="arithmatex">\(\sqrt{n}\)</span>. If none of the remainders are 0, then n is prime. (we can avoid even integers &gt; 2) </li>
+<li>But, it will take <span class="arithmatex">\(O(\sqrt{n})\)</span> time = <span class="arithmatex">\(O(n^{1/2}) = O(2^N/2) = O(2^{N - 1})\)</span> which is exponential</li>
 <li>But this method gives us unnecessary information(We just need to check if the number is prime or not, but this method tells us the factors of the number, which is unnecessary)</li>
 <li>The best method to use is Pseudo Primality Testing</li>
 </ul>
@@ -6174,8 +6174,8 @@ $\text{for very large n: } \pi_n \approx \frac{n}{lnn}$
 </li>
 <li>We use <a href="../Useful%20Theorems/#fermats-little-theorem">Fermat's Little Theorem</a> here</li>
 <li>So we take a number "a" which is less than n</li>
-<li>Find $a^{p-1} \text{ mod p}$. If it is 1, then the n is prime, otherwise n is composite</li>
-<li>Modular exponentiation takes only $O(n^3)$ time. Therefore the complexity of this method is $O(n^3)$</li>
+<li>Find <span class="arithmatex">\(a^{p-1} \text{ mod p}\)</span>. If it is 1, then the n is prime, otherwise n is composite</li>
+<li>Modular exponentiation takes only <span class="arithmatex">\(O(n^3)\)</span> time. Therefore the complexity of this method is <span class="arithmatex">\(O(n^3)\)</span></li>
 <li>But this method can give false positives<ul>
 <li>i.e., If a number is prime, then the algorithm would always say it is prime</li>
 <li>But is the number is composite, then it is not guaranteed that it will say it is composite</li>
@@ -6241,6 +6241,8 @@ Carmicheal Numbers examples: 561</p>
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

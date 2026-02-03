@@ -5905,7 +5905,7 @@ Steps:
 - A sender must be able to detect a collision <strong>before it finishes sending the frame</strong> <br />
 - To ensure this, Ethernet defines a <strong>minimum frame size of 64 bytes</strong>
 Reason:</p>
-<p>$\text{Transmission time} \ge 2 × \text{propagation delay}$</p>
+<p><span class="arithmatex">\(\text{Transmission time} \ge 2 × \text{propagation delay}\)</span></p>
 <p>so that a collision anywhere on the wire can be detected before transmission ends.</p>
 <h2 id="efficiency-summary-exam-punch-lines">💥 Efficiency summary (exam punch-lines)<a class="headerlink" href="#efficiency-summary-exam-punch-lines" title="Permanent link">&para;</a></h2>
 <table>
@@ -5960,10 +5960,10 @@ Reason:</p>
 <p>For collision detection to work:
 <code>Transmission time ≥ 2 × Propagation delay</code>
 Or more commonly written as:
-$T_{transmit} ≥ 2 × τ$
+<span class="arithmatex">\(T_{transmit} ≥ 2 × τ\)</span>
 where:</p>
 <ul>
-<li>$T_{transmit}$ = time needed to send a full Ethernet frame</li>
+<li><span class="arithmatex">\(T_{transmit}\)</span> = time needed to send a full Ethernet frame</li>
 <li>τ = <strong>one-way propagation delay</strong> across the maximum cable length</li>
 </ul>
 <p>Sometimes class notes use <strong>ε (epsilon)</strong> for frame transmission time:
@@ -5987,7 +5987,7 @@ where:</p>
 <li>Signal propagation ≈ <strong>2 × 2.5 µs = 5 µs</strong> round-trip</li>
 </ul>
 <p>Recall:
-$T_{transmit} ≥ 2 × τ$</p>
+<span class="arithmatex">\(T_{transmit} ≥ 2 × τ\)</span></p>
 <p>To ensure detection:
 <code>Frame_size / 10 Mbps ≥ 50 µs Frame_size ≥ 10,000 bits = 1250 bytes</code></p>
 <p>But CSMA/CD got optimized using:</p>
@@ -6099,6 +6099,8 @@ If it <strong>survives longer than the contention period</strong>, the sender kn
     
     
       <script src="../../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -5844,15 +5844,15 @@
 <h2 id="21-target-function">2.1 Target Function<a class="headerlink" href="#21-target-function" title="Permanent link">&para;</a></h2>
 <p>In this problem, we aim to predict a student’s <strong>Exam Score</strong> using two independent variables: <strong>Study Hours</strong> and <strong>Sleep Hours</strong>.</p>
 <h3 id="mathematical-model">Mathematical Model<a class="headerlink" href="#mathematical-model" title="Permanent link">&para;</a></h3>
-<p>$y = w_1 \cdot x_1 + w_2 \cdot x_2 + b$</p>
+<p><span class="arithmatex">\(y = w_1 \cdot x_1 + w_2 \cdot x_2 + b\)</span></p>
 <h3 id="variable-definitions">Variable Definitions<a class="headerlink" href="#variable-definitions" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>y</strong>: Exam Score (dependent variable)</li>
-<li><strong>$x_1$</strong>: Study Hours (independent variable)</li>
-<li><strong>$x_2$</strong>: Sleep Hours (independent variable)</li>
-<li><strong>$w_1$</strong>: Weight associated with Study Hours</li>
-<li><strong>$w_2$</strong>: Weight associated with Sleep Hours</li>
-<li><strong>$b$</strong>: Bias (intercept) term</li>
+<li><strong><span class="arithmatex">\(x_1\)</span></strong>: Study Hours (independent variable)</li>
+<li><strong><span class="arithmatex">\(x_2\)</span></strong>: Sleep Hours (independent variable)</li>
+<li><strong><span class="arithmatex">\(w_1\)</span></strong>: Weight associated with Study Hours</li>
+<li><strong><span class="arithmatex">\(w_2\)</span></strong>: Weight associated with Sleep Hours</li>
+<li><strong><span class="arithmatex">\(b\)</span></strong>: Bias (intercept) term</li>
 </ul>
 <hr />
 <h2 id="22-model-results-without-feature-scaling">2.2 Model Results: <em>Without Feature Scaling</em><a class="headerlink" href="#22-model-results-without-feature-scaling" title="Permanent link">&para;</a></h2>
@@ -5884,15 +5884,15 @@ prediction = model1.predict([[3, 7]])[0]
 </thead>
 <tbody>
 <tr>
-<td><strong>$w_1$ (Study Hours)</strong></td>
+<td><strong><span class="arithmatex">\(w_1\)</span> (Study Hours)</strong></td>
 <td>5.667</td>
 </tr>
 <tr>
-<td><strong>$w_2$ (Sleep Hours)</strong></td>
+<td><strong><span class="arithmatex">\(w_2\)</span> (Sleep Hours)</strong></td>
 <td>1.667</td>
 </tr>
 <tr>
-<td><strong>$b$ (Intercept)</strong></td>
+<td><strong><span class="arithmatex">\(b\)</span> (Intercept)</strong></td>
 <td>48.33</td>
 </tr>
 <tr>
@@ -5935,15 +5935,15 @@ prediction_scaled = model2.predict(input_scaled)[0]
 </thead>
 <tbody>
 <tr>
-<td><strong>$w_1$ (Study Hours – Scaled)</strong></td>
+<td><strong><span class="arithmatex">\(w_1\)</span> (Study Hours – Scaled)</strong></td>
 <td>6.335</td>
 </tr>
 <tr>
-<td><strong>$w_2$ (Sleep Hours – Scaled)</strong></td>
+<td><strong><span class="arithmatex">\(w_2\)</span> (Sleep Hours – Scaled)</strong></td>
 <td>1.389</td>
 </tr>
 <tr>
-<td><strong>$b$ (Intercept)</strong></td>
+<td><strong><span class="arithmatex">\(b\)</span> (Intercept)</strong></td>
 <td>73.75</td>
 </tr>
 <tr>
@@ -6147,11 +6147,11 @@ for i, val in enumerate(test_points):
 <h3 id="learned-model-equations">Learned Model Equations<a class="headerlink" href="#learned-model-equations" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Linear Regression</strong><br />
-    $\hat{y} = 7.10x - 8.5$    </li>
+<span class="arithmatex">\(\hat{y} = 7.10x - 8.5\)</span>    </li>
 <li><strong>Polynomial Regression (Degree 2)</strong><br />
-    $\hat{y} = 1.357x^2 - 1.043x + 1.000$</li>
+<span class="arithmatex">\(\hat{y} = 1.357x^2 - 1.043x + 1.000\)</span></li>
 <li><strong>Polynomial Regression (Degree 4)</strong><br />
-    $\hat{y} = -0.042x^4 + 0.750x^3 - 2.958x^2 + 8.250x - 5.000$    </li>
+<span class="arithmatex">\(\hat{y} = -0.042x^4 + 0.750x^3 - 2.958x^2 + 8.250x - 5.000\)</span>    </li>
 </ul>
 <h3 id="performance-comparison-cost-mse2">Performance Comparison (Cost = MSE/2)<a class="headerlink" href="#performance-comparison-cost-mse2" title="Permanent link">&para;</a></h3>
 <p><img alt="Performance Comparison.png" src="../Images/Performance%20Comparison.png" /></p>
@@ -6281,6 +6281,8 @@ for i, val in enumerate(test_points):
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

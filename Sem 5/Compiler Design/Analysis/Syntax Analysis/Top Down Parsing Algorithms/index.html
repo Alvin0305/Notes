@@ -5761,9 +5761,9 @@ Input: (b)</p>
 <h4 id="method-3-predictive-parsing">Method 3: Predictive Parsing<a class="headerlink" href="#method-3-predictive-parsing" title="Permanent link">&para;</a></h4>
 <hr />
 <ul>
-<li>If we have A -&gt; $a\alpha | b\beta$ <ul>
-<li>If the look ahead is a, we choose A -&gt; $a\alpha$</li>
-<li>If the look ahead is b, we choose A -&gt; $b\beta$</li>
+<li>If we have A -&gt; <span class="arithmatex">\(a\alpha | b\beta\)</span> <ul>
+<li>If the look ahead is a, we choose A -&gt; <span class="arithmatex">\(a\alpha\)</span></li>
+<li>If the look ahead is b, we choose A -&gt; <span class="arithmatex">\(b\beta\)</span></li>
 </ul>
 </li>
 </ul>
@@ -5987,7 +5987,7 @@ Algorithm to populate the parsing table using FIRST and FOLLOW sets</p>
 <p>For each production A -&gt; α
 1. for each terminal a ∈ FIRST(α), add A -&gt; α to T[A, a]
 2. if ε ∈ FIRST(α), for each terminal b in FOLLOW(A), add A -&gt; α to T[A, b]
-3. if ε ∈ FIRST(α), and \$ ∈ FOLLOW(A), add A -&gt; α to T[A, \$]</p>
+3. if ε ∈ FIRST(α), and $ ∈ FOLLOW(A), add A -&gt; α to T[A, $]</p>
 <p>[!example] 
 S -&gt; (A)
 A -&gt; Cd
@@ -6330,7 +6330,7 @@ FOLLOW(S) = {$}</p>
 <td></td>
 </tr>
 <tr>
-<td>&gt;FOLLOW(E) = {\$}</td>
+<td>&gt;FOLLOW(E) = {$}</td>
 <td></td>
 <td></td>
 <td></td>
@@ -6338,7 +6338,7 @@ FOLLOW(S) = {$}</p>
 <td></td>
 </tr>
 <tr>
-<td>&gt;FOLLOW(T) = {+, \$}</td>
+<td>&gt;FOLLOW(T) = {+, $}</td>
 <td></td>
 <td></td>
 <td></td>
@@ -6346,7 +6346,7 @@ FOLLOW(S) = {$}</p>
 <td></td>
 </tr>
 <tr>
-<td>&gt;FOLLOW(E') = {\$}</td>
+<td>&gt;FOLLOW(E') = {$}</td>
 <td></td>
 <td></td>
 <td></td>
@@ -6396,9 +6396,9 @@ FIRST(bB) = {b}
 FIRST(B) = {b, ε}
 FIRST(A) = {a, ε}
 FIRST(S) = {a, b, ε}</p>
-<p>FOLLOW(S) = {\$}
-FOLLOW(A) = {b, \$}
-FOLLOW(B) = {\$}</p>
+<p>FOLLOW(S) = {$}
+FOLLOW(A) = {b, $}
+FOLLOW(B) = {$}</p>
 </blockquote>
 <table>
 <thead>
@@ -6444,7 +6444,7 @@ FIRST(C) = {c, ε}
 FIRST(B) = {b, ε}
 FIRST(A) = {b, c, ε}
 FIRST(S) = {(}</p>
-<p>FOLLOW(S) = {\$}
+<p>FOLLOW(S) = {$}
 FOLLOW(A) = {)}
 FOLLOW(B) = {c, )}
 FOLLOW(C) = {)}</p>
@@ -6506,9 +6506,9 @@ FIRST(c) = {c}
 FIRST(C) = {c, ε}
 FIRST(B) = {b, ε}
 FIRST(A) = {b, c, ε}</p>
-<p>FOLLOW(A) = {\$}
-FOLLOW(B) = {c, \$}
-FOLLOW(C) = {\$}</p>
+<p>FOLLOW(A) = {$}
+FOLLOW(B) = {c, $}
+FOLLOW(C) = {$}</p>
 </blockquote>
 <table>
 <thead>
@@ -6577,8 +6577,8 @@ Output -&gt; if w ∈ L(G), productions in a <a href="../../../Concepts/#left-mo
 </blockquote>
 <ul>
 <li>In this method, we keep a stack of input symbols and an input buffer</li>
-<li>The stack contains S\$ initially (S is on top)</li>
-<li>Input buffer contains w\$</li>
+<li>The stack contains S$ initially (S is on top)</li>
+<li>Input buffer contains w$</li>
 </ul>
 <blockquote>
 <p>[!question] 
@@ -6667,13 +6667,13 @@ T -&gt; id</p>
 <td>match id</td>
 </tr>
 <tr>
-<td style="text-align: right;">E\$</td>
-<td style="text-align: right;">\$</td>
+<td style="text-align: right;">E$</td>
+<td style="text-align: right;">$</td>
 <td>E -&gt; ε</td>
 </tr>
 <tr>
-<td style="text-align: right;">\$</td>
-<td style="text-align: right;">\$</td>
+<td style="text-align: right;">$</td>
+<td style="text-align: right;">$</td>
 <td>accept</td>
 </tr>
 <tr>
@@ -6741,6 +6741,8 @@ T -&gt; id</p>
     
     
       <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

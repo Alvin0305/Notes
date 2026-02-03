@@ -5879,7 +5879,7 @@
 
 <h3 id="multiplication-of-complex-numbers">Multiplication of Complex Numbers<a class="headerlink" href="#multiplication-of-complex-numbers" title="Permanent link">&para;</a></h3>
 <hr />
-<p>$$(a + bi) * (c + di) = (ac - bd) + (ad + bc)i$$
+<p>$<span class="arithmatex">\((a + bi) * (c + di) = (ac - bd) + (ad + bc)i\)</span>$
 - This contains 4 multiplications
 - Multiplication is more expensive than addition, So we try to reduce the number of multiplications (which may increase the number of additions)
 $$
@@ -5895,7 +5895,7 @@ $$
 <h3 id="multiplication-of-2-numbers">Multiplication of 2 Numbers<a class="headerlink" href="#multiplication-of-2-numbers" title="Permanent link">&para;</a></h3>
 <hr />
 <ul>
-<li>Multiplication of two numbers in naive method results in $O(n^2)$ time</li>
+<li>Multiplication of two numbers in naive method results in <span class="arithmatex">\(O(n^2)\)</span> time</li>
 <li>Multiplication of two numbers can also be done efficiently by divide and conquer. In each step we split the number in middle. And we multiply them only if the numbers get reduced to one bit (In practical computers, there is no need to divide them till 1 bit, most of the computers can handle 16-bit or 32-bit multiplications as a single operation)
 $$
 \begin{aligned}
@@ -5915,16 +5915,16 @@ $$
 - This needs 4 multiplications
 - And each time we are splitting the number in half
 - =&gt; T(n) = 4T(n / 2) + O(n)
-- =&gt; T(n) = $O(n^2)$</p>
+- =&gt; T(n) = <span class="arithmatex">\(O(n^2)\)</span></p>
 <h5 id="better-method">Better method<a class="headerlink" href="#better-method" title="Permanent link">&para;</a></h5>
 <ul>
-<li>Here we need to compute $X_RY_L + X_LY_R$ which can be rewritten as:
+<li>Here we need to compute <span class="arithmatex">\(X_RY_L + X_LY_R\)</span> which can be rewritten as:
 $$
 \begin{aligned}
 X_RY_L + X_LY_R &amp;= (X_L + X_R)\cdot(Y_L + Y_R) - X_LY_L - X_RY_R \
 \end{aligned}
 $$</li>
-<li>This looks like we have increased the number of multiplications from 2 to 3, but we can see that, the $X_LY_L$ term and $X_RY_R$ term we have already computed. Which means, we reduced the number of multiplications from a total of 4 to 3
+<li>This looks like we have increased the number of multiplications from 2 to 3, but we can see that, the <span class="arithmatex">\(X_LY_L\)</span> term and <span class="arithmatex">\(X_RY_R\)</span> term we have already computed. Which means, we reduced the number of multiplications from a total of 4 to 3
 $$
 \begin{aligned}
 P_1 &amp;= X_LY_L \
@@ -5952,8 +5952,8 @@ $$</li>
 <ul>
 <li>Since, there are 3 multiplications and each at each step we are splitting the number in halves</li>
 <li>=&gt; T(n) = 3T(n/2) + O(n)</li>
-<li>=&gt; T(n) = $O(n^{\log_{2}(3)}) = O(n^{1.585})$</li>
-<li>Which is better than $O(n^2)$</li>
+<li>=&gt; T(n) = <span class="arithmatex">\(O(n^{\log_{2}(3)}) = O(n^{1.585})\)</span></li>
+<li>Which is better than <span class="arithmatex">\(O(n^2)\)</span></li>
 </ul>
 <blockquote>
 <p>[!question] Find the k-th smallest element in an unsorted Array</p>
@@ -5984,7 +5984,7 @@ $$</li>
 </li>
 <li>Partioning the array takes O(n) time</li>
 <li>Best time complexity: O(n)</li>
-<li>Worst time complexity: $O(n^2)$ =&gt; If the pivot we take always lies in the starting or ending of the array after partitioning, then it will take $O(n^2)$ time</li>
+<li>Worst time complexity: <span class="arithmatex">\(O(n^2)\)</span> =&gt; If the pivot we take always lies in the starting or ending of the array after partitioning, then it will take <span class="arithmatex">\(O(n^2)\)</span> time</li>
 </ul>
 <pre><code class="language-Python">def quick_select(arr, left, right, k):
     if left == right:
@@ -6044,14 +6044,14 @@ def partition(arr, left, right):
 <p>So, T(n) = T(n/5) + T(7n/10) + O(n)
 =&gt; T(n) &lt;= T(n/5) + T(7n/10) + dn for some d &gt; 0
 We assume T(n) &lt;= cn for some constant c and try to prove it by induction
-=&gt; $T(n) \le c\frac{n}{5} + c\frac{7n}{10} + dn$
-=&gt; $T(n) \le cn(\frac{1}{5} + \frac{7}{10} + \frac{d}{c})$
-=&gt; $T(n) \le cn(\frac{2}{10} + \frac{7}{10} + \frac{d}{c})$
-=&gt; $T(n) \le cn(\frac{9}{10} + \frac{d}{c})$
+=&gt; <span class="arithmatex">\(T(n) \le c\frac{n}{5} + c\frac{7n}{10} + dn\)</span>
+=&gt; <span class="arithmatex">\(T(n) \le cn(\frac{1}{5} + \frac{7}{10} + \frac{d}{c})\)</span>
+=&gt; <span class="arithmatex">\(T(n) \le cn(\frac{2}{10} + \frac{7}{10} + \frac{d}{c})\)</span>
+=&gt; <span class="arithmatex">\(T(n) \le cn(\frac{9}{10} + \frac{d}{c})\)</span>
 Take c &gt;= 10d
-=&gt; $T(n) \le cn(\frac{9}{10} + \frac{1}{10})$
-=&gt; $T(n) \le cn\frac{10}{10}$
-=&gt; $T(n) \le cn$
+=&gt; <span class="arithmatex">\(T(n) \le cn(\frac{9}{10} + \frac{1}{10})\)</span>
+=&gt; <span class="arithmatex">\(T(n) \le cn\frac{10}{10}\)</span>
+=&gt; <span class="arithmatex">\(T(n) \le cn\)</span>
 =&gt; taking appropriate value for d gives as T(n) = O(n)</p>
 <p>Base case:
 - T(5) &lt;= 10 i.e., T(n) &lt;= 5c for all c &gt;= 2
@@ -6064,8 +6064,8 @@ Time complexity can be proved using <a href="../Useful%20Theorems/#extended-mast
 <ul>
 <li>Find all sub-arrays of the given array</li>
 <li>Find the maximum sum among the sub-arrays</li>
-<li>Generating all sub-arrays need $O(n^3)$ time</li>
-<li>Therefore complexity is $O(n^3)$</li>
+<li>Generating all sub-arrays need <span class="arithmatex">\(O(n^3)\)</span> time</li>
+<li>Therefore complexity is <span class="arithmatex">\(O(n^3)\)</span></li>
 </ul>
 <h4 id="divide-and-conquer-approach">Divide and conquer approach<a class="headerlink" href="#divide-and-conquer-approach" title="Permanent link">&para;</a></h4>
 <ul>
@@ -6142,7 +6142,7 @@ Inversions:
 <ul>
 <li>Compare every pair of (i, j)</li>
 <li>If arr[i] &gt; arr[j] and i &lt; j, increment count</li>
-<li>Since we need to check all the possible pairs of (i, j), it takes $O(n^2)$ time</li>
+<li>Since we need to check all the possible pairs of (i, j), it takes <span class="arithmatex">\(O(n^2)\)</span> time</li>
 </ul>
 <pre><code class="language-Python">def countInverse(arr):
     n = len(arr)
@@ -6265,6 +6265,8 @@ def mergeAndCount(arr, l, mid, r):
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

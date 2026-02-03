@@ -5772,7 +5772,7 @@ Depending on the type of problem:</p>
 <h5 id="minimization-example-vertex-cover-set-cover">✔ Minimization (example: Vertex Cover, Set Cover)<a class="headerlink" href="#minimization-example-vertex-cover-set-cover" title="Permanent link">&para;</a></h5>
 <p>Smaller is better<br />
 The algorithm should satisfy:
-$$ALG≤ρ(n)⋅OPT$$
+$<span class="arithmatex">\(ALG≤ρ(n)⋅OPT\)</span>$
 If ρ(n) = 2, that means:</p>
 <blockquote>
 <p>"The algorithm's answer is at most 2 times the optimal."</p>
@@ -5780,7 +5780,7 @@ If ρ(n) = 2, that means:</p>
 <h5 id="maximization-example-max-sat">✔ Maximization (example: Max-SAT)<a class="headerlink" href="#maximization-example-max-sat" title="Permanent link">&para;</a></h5>
 <p>Bigger is better<br />
 Here:
-$$ALG≥\frac{1}{ρ(n)}⋅OPT$$
+$<span class="arithmatex">\(ALG≥\frac{1}{ρ(n)}⋅OPT\)</span>$
 If ρ(n) = 2, that means:</p>
 <blockquote>
 <p>"The algorithm achieves at least half of the optimal."</p>
@@ -5796,7 +5796,7 @@ If ρ(n) = 2, that means:</p>
 <li>Remove e and all the edges from u and v from the graph</li>
 <li>Repeat until the graph is empty</li>
 </ul>
-<p>$$|ALG| \le 2|OPT|$$</p>
+<div class="arithmatex">\[|ALG| \le 2|OPT|\]</div>
 <h4 id="approximation-algorithm-for-set-cover">Approximation Algorithm for Set Cover<a class="headerlink" href="#approximation-algorithm-for-set-cover" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Take the set with most number of uncovered elements</li>
@@ -5818,7 +5818,7 @@ $$</li>
 <li>Since OPT used k sets to cover everything,  </li>
 <li>OPT could cover these t remaining elements with <strong>at most k sets</strong>.</li>
 <li>So one of those sets must cover at least <strong>t/k</strong> elements.</li>
-<li>Because: If k sets cover t elements, average coverage per set=$\frac{t}{k}$</li>
+<li>Because: If k sets cover t elements, average coverage per set=<span class="arithmatex">\(\frac{t}{k}\)</span></li>
 <li>There must be one set with ≥ average coverage.</li>
 <li>OPT has a set covering ≥ t/k uncovered elements   </li>
 <li>Greedy picks the set covering the <strong>maximum</strong> uncovered elements
@@ -5899,6 +5899,8 @@ $$</li>
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

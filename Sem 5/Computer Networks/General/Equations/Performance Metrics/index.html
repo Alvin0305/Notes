@@ -5790,21 +5790,21 @@
 
 
 <h4 id="bandwidth-delay-product">Bandwidth Delay Product<a class="headerlink" href="#bandwidth-delay-product" title="Permanent link">&para;</a></h4>
-<p>$$\text{Bandwidth Delay Product} = Bandwidth \times \text{Delay}$$
-$$\text{Bandwidth Delay Product} \approx Bandwidth \times \text{Round Trip Time}$$
+<p>$<span class="arithmatex">\(\text{Bandwidth Delay Product} = Bandwidth \times \text{Delay}\)</span>$
+$<span class="arithmatex">\(\text{Bandwidth Delay Product} \approx Bandwidth \times \text{Round Trip Time}\)</span>$
 - This is the maximum number of bits which can be held in link.
 - Here Delay is approximately equal to RTT because, for RTT, we consider message of very small size</p>
 <h4 id="delay">Delay<a class="headerlink" href="#delay" title="Permanent link">&para;</a></h4>
 <h1 id="transmission-delay">Transmission-Delay<a class="headerlink" href="#transmission-delay" title="Permanent link">&para;</a></h1>
 <ul>
 <li>time to put the data from device to wire
-$$TD = \frac{message size}{band width}$$</li>
+$<span class="arithmatex">\(TD = \frac{message size}{band width}\)</span>$</li>
 <li>Maximum size of message is 1514 B or 1522 B based on header</li>
 </ul>
 <h1 id="propagation-delay">Propagation-Delay<a class="headerlink" href="#propagation-delay" title="Permanent link">&para;</a></h1>
 <ul>
 <li>time taken to send the message through the wire
-$$PD = \frac{distance}{speed}$$</li>
+$<span class="arithmatex">\(PD = \frac{distance}{speed}\)</span>$</li>
 </ul>
 <h1 id="queuing-delay">Queuing-Delay<a class="headerlink" href="#queuing-delay" title="Permanent link">&para;</a></h1>
 <ul>
@@ -5812,13 +5812,13 @@ $$PD = \frac{distance}{speed}$$</li>
 <li>Negligible</li>
 </ul>
 <h1 id="latency">Latency<a class="headerlink" href="#latency" title="Permanent link">&para;</a></h1>
-<p>$$L = TD + PD + QD$$</p>
+<div class="arithmatex">\[L = TD + PD + QD\]</div>
 <h1 id="rtt">RTT<a class="headerlink" href="#rtt" title="Permanent link">&para;</a></h1>
 <ul>
 <li>Round Trip Time</li>
 <li>Time for a packet to go from sender → receiver → back to sender</li>
 <li>The packet will be very small such that its transmission delay can be neglected
-$$\text{Round Trip Time} \approx 2 \times \text{Propagation Delay}$$
+$<span class="arithmatex">\(\text{Round Trip Time} \approx 2 \times \text{Propagation Delay}\)</span>$
 Example:</li>
 <li>Ping command measures RTT
 Used heavily in TCP for timeout calculations.</li>
@@ -5852,7 +5852,7 @@ but it can temporarily exceed, resulting in congestion or packet loss</p>
 <p>Practically Throughput &lt; Bandwidth
 Throughput can reduce drastically when collisions occur</p>
 <h4 id="utilization-efficiency">Utilization (Efficiency)<a class="headerlink" href="#utilization-efficiency" title="Permanent link">&para;</a></h4>
-<p>$$Efficiency = \frac{\text{Actual used Bandwidth}}{\text{Total available bandwidth}} \times 100$$</p>
+<div class="arithmatex">\[Efficiency = \frac{\text{Actual used Bandwidth}}{\text{Total available bandwidth}} \times 100\]</div>
 
 
 
@@ -5906,6 +5906,8 @@ Throughput can reduce drastically when collisions occur</p>
     
     
       <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

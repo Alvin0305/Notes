@@ -5670,8 +5670,8 @@ FIRST(E) = {b}
 FIRST(S') = {e, ε}
 FIRST(S) = {i, a}</p>
 <p>FOLLOW(E) = {t}
-FOLLOW(S) = {\$, e}
-FOLLOW(S') = {\$, e}</p>
+FOLLOW(S) = {$, e}
+FOLLOW(S') = {$, e}</p>
 <p>ε ∈ FIRST(ε) and FIRST(eS) and FOLLOW(S') contains e is common =&gt; The grammar is not LL(1)</p>
 </blockquote>
 <table>
@@ -5947,9 +5947,9 @@ FOLLOW(S') = {\$, e}</p>
 1: S -&gt; id = R
 2: R -&gt; id + id
 3: R -&gt; id</p>
-<p>FOLLOW(S') = {\$}
-FOLLOW(S) = {\$}
-FOLLOW(R) = {\$}</p>
+<p>FOLLOW(S') = {$}
+FOLLOW(S) = {$}
+FOLLOW(R) = {$}</p>
 </blockquote>
 <table>
 <thead>
@@ -6062,10 +6062,10 @@ FOLLOW(R) = {\$}</p>
 1: S -&gt; L = R
 2: L -&gt; id
 3: R -&gt; num</p>
-<p>FOLLOW(S') = {\$}
-FOLLOW(S) = {\$}
+<p>FOLLOW(S') = {$}
+FOLLOW(S) = {$}
 FOLLOW(L) = {=}
-FOLLOW(R) = {\$}</p>
+FOLLOW(R) = {$}</p>
 </blockquote>
 <table>
 <thead>
@@ -6159,9 +6159,9 @@ FOLLOW(R) = {\$}</p>
 1: E -&gt; T + E
 2: E -&gt; T
 3: T -&gt; id</p>
-<p>FOLLOW(E') = {\$}
-FOLLOW(E) = {\$}
-FOLLOW(T) = {+, \$}
+<p>FOLLOW(E') = {$}
+FOLLOW(E) = {$}
+FOLLOW(T) = {+, $}
 - If we were doing LR(0),</p>
 </blockquote>
 <table>
@@ -6357,6 +6357,8 @@ FOLLOW(T) = {+, \$}
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

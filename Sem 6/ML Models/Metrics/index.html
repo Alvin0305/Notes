@@ -5716,7 +5716,7 @@
 <p>[!tip] Accuracy refers to "out of everything I predicted, how many did i get right"
 - This includes how much true positives and how much true negatives we caught</p>
 </blockquote>
-<p>$$Accuracy = \frac{TP + TN}{TP + TN + FP + FN}$$</p>
+<div class="arithmatex">\[Accuracy = \frac{TP + TN}{TP + TN + FP + FN}\]</div>
 <blockquote>
 <p>[!warning] 
 This fails when the data is unbalanced
@@ -5727,19 +5727,19 @@ This fails when the data is unbalanced
 <p>[!tip] Precision refers to "of all the predicted positives, how many are actual positives"
 - It is the number of true positives among the predicted positives</p>
 </blockquote>
-<p>$$Precision = \frac{TP}{TP + FP}$$</p>
+<div class="arithmatex">\[Precision = \frac{TP}{TP + FP}\]</div>
 <h2 id="recall-sensitivity">Recall (Sensitivity)<a class="headerlink" href="#recall-sensitivity" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>[!tip] Recall refers to "of all the actual positives, how many did I successfully find"
 - It is the number of true positives among the total number of actual positive cases</p>
 </blockquote>
-<p>$$Recall = \frac{TP}{TP + FN}$$</p>
+<div class="arithmatex">\[Recall = \frac{TP}{TP + FN}\]</div>
 <h2 id="specificity">Specificity<a class="headerlink" href="#specificity" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>[!tip] Specificity is the opposite of Recall
 - It refers to "of all the actual negatives, how many did I correctly ignore"</p>
 </blockquote>
-<p>$$Specificity = \frac{TN}{TN + FP}$$</p>
+<div class="arithmatex">\[Specificity = \frac{TN}{TN + FP}\]</div>
 <h2 id="f1-measure">F1-Measure<a class="headerlink" href="#f1-measure" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>[!tip] If we care about both precision and recall, use F1.
@@ -5747,7 +5747,7 @@ This fails when the data is unbalanced
 - It is high when both are high
 - It is the Harmonic Mean of precision and recall</p>
 </blockquote>
-<p>$$\text{F1-Measure} = \frac{2 \times Precision \times Recall}{Precision + Recall}$$</p>
+<div class="arithmatex">\[\text{F1-Measure} = \frac{2 \times Precision \times Recall}{Precision + Recall}\]</div>
 
 
 
@@ -5801,6 +5801,8 @@ This fails when the data is unbalanced
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

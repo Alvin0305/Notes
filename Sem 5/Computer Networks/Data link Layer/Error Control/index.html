@@ -5713,7 +5713,7 @@ Remainder = 0111
 <blockquote>
 <p>[!question] How to find the number of parity bits needed?
 if m = number of data bits, and r = number of parity bits, r can be found by
-$2^r \ge m + r + 1$</p>
+<span class="arithmatex">\(2^r \ge m + r + 1\)</span></p>
 <p>m + r = total length of code word</p>
 <p>[!example]
 to send 4 bits of data
@@ -5764,7 +5764,7 @@ i.e., error is in the 5th position, so we can toggle the bit and correct the err
 Minimum Hamming distance (d)</p>
 <ul>
 <li>Minimum Hamming distance is the minimum value obtained by doing XOR in all possible pairs of code words.</li>
-<li>Hamming Code can detect d - 1 bit errors and correct $\frac{d-1}{2}$ bit errors</li>
+<li>Hamming Code can detect d - 1 bit errors and correct <span class="arithmatex">\(\frac{d-1}{2}\)</span> bit errors</li>
 </ul>
 <p>[!warning] Hamming Code is not always correct
 Hamming code can give false positives, i.e., it may say a code is correct even though it might have some errors. 
@@ -5823,6 +5823,8 @@ Solution is to use Read Solomon Codes or use LDPC (Low density parity check) or 
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
