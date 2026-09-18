@@ -1,0 +1,10 @@
+{
+	"nodes":[
+		{"id":"1e91cdbfce24cdf4","type":"text","text":"Packet Manager","x":-240,"y":-80,"width":195,"height":65},
+		{"id":"b92f4e38d17c1917","x":-6,"y":100,"width":166,"height":59,"type":"text","text":"ARP Manager"},
+		{"id":"888b7d45826b9195","x":-200,"y":-280,"width":180,"height":60,"type":"text","text":"IPv4 Manager"},
+		{"id":"911d1e14acc23a6e","x":138,"y":-101,"width":162,"height":50,"type":"text","text":"ICMP Manager"},
+		{"id":"97a2bcbf3b00503c","x":36,"y":-319,"width":250,"height":60,"type":"text","text":"ACL"}
+	],
+	"edges":[]
+}
